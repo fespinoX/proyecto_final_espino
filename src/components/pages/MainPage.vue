@@ -4,8 +4,10 @@
       <v-col cols="12">
         
         <UserPage v-if="user.id === ''" />
-        <ListadoPage v-else />
-        <CarritoPage v-show="false" />
+        <ListadoPage 
+          v-else
+        />
+        <CarritoPage />
 
       </v-col>
 
@@ -15,6 +17,7 @@
 
 <script>
 
+  // Components
   import UserPage from './UserPage';
   import ListadoPage from './ListadoPage';
   import CarritoPage from './CarritoPage';
@@ -28,10 +31,10 @@
     },
 
     data: () => ({
-        user: {
-          id: '',
-          name: ''
-        }
+      user: {
+        id: '1',
+        name: ''
+      }
     }),
   }
 </script>

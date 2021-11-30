@@ -1,0 +1,22 @@
+[
+  {
+    "nombre": "Pantalon",
+    "precio": 460,
+    "cantidad": 3
+  },
+  {
+    "nombre": "Campera",
+    "precio": 460.54454,
+    "cantidad": 0
+  },
+  {
+    "nombre": "Buzo",
+    "precio": 460.34354545,
+    "cantidad": 5
+  },
+  {
+    "nombre": "Remera",
+    "precio": 460,
+    "cantidad": 12
+  }
+]

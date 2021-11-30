@@ -24,6 +24,7 @@
 </template>
 
 <script>
+
 import MainPage from './components/pages/MainPage';
 
 export default {
@@ -34,7 +35,7 @@ export default {
   },
 
   data: () => ({
-    //
+
   }),
 };
 </script>
