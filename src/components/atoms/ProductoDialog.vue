@@ -2,10 +2,11 @@
   <v-dialog v-model="open">
     <v-card>
       <v-card-title>
-        <h1>{{ productoSeleccionado.name }}</h1>
+        <h1>{{ productoSeleccionado.nombre }}</h1>
       </v-card-title>
       <v-card-text>
-        
+        <p>Precio: ${{productoSeleccionado.precio}}</p>
+        <p>Cantidad disponible: {{productoSeleccionado.cantidad}}</p>
       </v-card-text>
     </v-card>
   </v-dialog>

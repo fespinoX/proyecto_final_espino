@@ -45,10 +45,9 @@
       }
     },
     methods: {
-      verDetalle(producto) {
+      verDetalle(product) {
         this.dialog = true;
-        this.productoSeleccionado = producto;
-        console.log(producto);
+        this.productoSeleccionado = product;
       },
     },
   }
