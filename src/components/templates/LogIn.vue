@@ -17,4 +17,6 @@
 
     }),
   }
+
+  // hacer un console log q consolee el objeto con los datos de los fields
 </script>
