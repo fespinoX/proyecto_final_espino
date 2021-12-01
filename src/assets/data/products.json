@@ -1,22 +1,56 @@
 [
   {
-    "nombre": "Pantalon",
-    "precio": 460,
-    "cantidad": 3
+    "nombre": "Space Base",
+    "precio": 32.28,
+    "cantidad": 5,
+    "img": "spacebase"
   },
   {
-    "nombre": "Campera",
-    "precio": 460.54454,
-    "cantidad": 0
+    "nombre": "Tiny Towns",
+    "precio": 31.12,
+    "cantidad": 0,
+    "img": "tinytowns"
   },
   {
-    "nombre": "Buzo",
-    "precio": 460.34354545,
-    "cantidad": 5
+    "nombre": "Land vs. Sea",
+    "precio": 29.99,
+    "cantidad": 5,
+    "img": "landvssea"
   },
   {
-    "nombre": "Remera",
-    "precio": 460,
-    "cantidad": 12
+    "nombre": "Cubirds",
+    "precio": 15,
+    "cantidad": 12,
+    "img": "cubirds"
+  },
+  {
+    "nombre": "Shifting Stones",
+    "precio": 18.95,
+    "cantidad": 10,
+    "img": "shiftingstones"
+  },
+  {
+    "nombre": "Codex Naturalis",
+    "precio": 14.99,
+    "cantidad": 2,
+    "img": "codexnaturalis"
+  },
+  {
+    "nombre": "No, Thanks!",
+    "precio": 9.95,
+    "cantidad": 0,
+    "img": "nothanks"
+  },
+  {
+    "nombre": "Chai Tea for Two",
+    "precio": 45.99,
+    "cantidad": 0,
+    "img": "chaitea"
+  },
+  {
+    "nombre": "Downforce",
+    "precio": 59.99,
+    "cantidad": 7,
+    "img": "downforce"
   }
 ]

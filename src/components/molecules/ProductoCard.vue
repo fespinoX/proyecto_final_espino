@@ -1,5 +1,9 @@
 <template>
   <v-card>
+    <v-img
+      height="250"
+      :src="'./../../assets/img/' + product.img + '.jpg'"
+    ></v-img>
     <v-card-title>
       {{ product.nombre }}
     </v-card-title>

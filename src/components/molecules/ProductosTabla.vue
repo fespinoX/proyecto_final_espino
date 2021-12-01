@@ -5,6 +5,7 @@
         class="elevation-1"
         hide-default-footer
     >
+    
     </v-data-table>
 </template>
 
@@ -40,4 +41,7 @@
       ]
     }),
   }
+
+// los headers y los productos pueden ir a data
+
 </script>

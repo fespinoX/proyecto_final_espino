@@ -1,14 +1,8 @@
 <template>
   <v-container>
-    <v-row class="text-center">
-      <v-col cols="12">
-        <p>Lista Productos</p>
-      </v-col>
-    </v-row>
-
     <v-row>
       <v-col 
-        cols="3"
+        cols="4"
         v-for="(product, i) in products" :key="i">
         <ProductoCard
           :product="product"
