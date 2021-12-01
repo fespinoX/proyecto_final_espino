@@ -15,7 +15,11 @@
 </template>
 
 <script>
-import ProductosTabla from '../molecules/ProductosTabla.vue'
+
+  //Components
+  import ProductosTabla from '../molecules/ProductosTabla.vue'
+
+
   export default {
   components: { ProductosTabla },
     name: 'CarritoPage',
@@ -25,7 +29,6 @@ import ProductosTabla from '../molecules/ProductosTabla.vue'
       },
     },
     data: () => ({
-
     }),
   }
 </script>

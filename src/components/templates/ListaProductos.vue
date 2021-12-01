@@ -33,12 +33,4 @@
     }
   }
 
-  /*
-  *
-  Creo la card del producto como otro componente y lo llam odesde aca
-  A cada cardproducto le paso con el producto :producto desde aca
-  en el componente card producto hago la card y recibo el producto con una prop
-
-
-  */
 </script>

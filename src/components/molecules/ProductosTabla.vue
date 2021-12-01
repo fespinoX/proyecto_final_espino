@@ -1,43 +1,38 @@
 <template>
     <v-data-table
         :headers="carritoHeader"
-        :items="carrito"
+        :items="productscarrito"
         class="elevation-1"
         hide-default-footer
     >
-    
+
     </v-data-table>
 </template>
 
 <script>
+
+  // Data
+  import productscarrito from "./../../assets/data/productscarrito.json"
+
   export default {
     name: 'ProductosTabla',
     props: {
-      productsCarrito: {
-        type: Array
-      },
     },
     data: () => ({
+      productscarrito,
       carritoHeader: [
         {
           text: "Nombre del producto",
-          value: "name"
+          value: "nombre"
         },
         {
           text: "Precio",
-          value: "price"
+          value: "precio"
         },
         {
           text: "Cantidad",
-          value: "qty"
-        }
-      ],
-      carrito: [
-        {   
-          name: "Pantalon",
-          price: 40,
-          qty: 2
-        }
+          value: "cantidad"
+        },
       ]
     }),
   }
