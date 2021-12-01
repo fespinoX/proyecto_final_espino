@@ -1,9 +1,9 @@
 <template>
   <v-card>
-    <v-img
+    <img
       height="250"
       :src="'./../../assets/img/' + product.img + '.jpg'"
-    ></v-img>
+    ><img>
     <v-card-title>
       {{ product.nombre }}
     </v-card-title>
@@ -18,6 +18,7 @@
 </template>
 
 <script>
+
   export default {
     name: 'ListaProductos',
     data: () => ({
