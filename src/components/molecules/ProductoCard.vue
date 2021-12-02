@@ -3,7 +3,7 @@
     <v-card>
       <v-img
         height="250"
-        :src="'./../../assets/img/' + product.img"
+        :src="defaultImg"
       ></v-img>
       <v-card-title>
         {{ product.nombre }}
@@ -29,6 +29,8 @@
 
 <script>
 
+  import defaultImg from "@/assets/img/default.jpg"
+
   // Components
   import ProductoDialog from "../atoms/ProductoDialog.vue";
 
@@ -40,6 +42,7 @@
     data: () => ({
       dialog: false,
       productoSeleccionado: {},
+      defaultImg: defaultImg
     }),
     props: {
       product: {
@@ -59,4 +62,6 @@
 
 
 // src="./../../assets/img/default.jpg"
+// src="@/assets/img/default.jpg"
+
 </script>
