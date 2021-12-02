@@ -27,12 +27,12 @@
     components: {
       UserPage,
       ListadoPage,
-      CarritoPage
+      CarritoPage,
     },
 
     data: () => ({
       user: {
-        id: '1',
+        id: '',
         name: ''
       }
     }),
