@@ -12,7 +12,6 @@
       <v-spacer></v-spacer>
 
       <div class="d-flex align-center">
-        <p>Holi</p>
       </div>
 
     </v-app-bar>

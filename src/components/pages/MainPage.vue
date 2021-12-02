@@ -2,12 +2,13 @@
   <v-container>
     <v-row class="text-center">
       <v-col cols="12">
-        
-        <UserPage v-if="user.id === ''" />
-        <ListadoPage 
-          v-else
-        />
-        <CarritoPage />
+        <h1 class="page-guia">Main Page</h1>
+        <UserPage v-if="!registered" @change="submit" />
+        <div v-else>
+          <ListadoPage 
+          />
+          <CarritoPage />
+        </div>
 
       </v-col>
 
@@ -34,7 +35,26 @@
       user: {
         id: '',
         name: ''
-      }
+      },
+      registered: false
     }),
+
+    methods: {
+      submit(estado) {
+        this.registered = estado
+      }
+    },
   }
 </script>
+
+<style>
+  
+  /*
+  *
+  Esto lo uso para mostrar la guia de paginas y no perderme entre
+  componentes mientras estoy desarrollando
+  */
+  .page-guia {
+    display: none;
+  }
+</style>

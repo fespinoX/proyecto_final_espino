@@ -2,10 +2,9 @@
   <v-container>
     <v-row class="text-center">
       <v-col cols="12">
-        <h1>User Page</h1>
-        <Registro />
-        <LogIn />
-
+        <h1 class="page-guia">User Page</h1>
+        <Registro @click="submit" />
+        <LogIn v-show="false" />
       </v-col>
 
     </v-row>
@@ -27,7 +26,14 @@
     },
 
     data: () => ({
-        
+        registered: false,
     }),
+
+    methods : {
+      submit(estado) {
+        this.registered = estado
+        this.$emit('change', this.registered);
+      }
+    }
   }
 </script>

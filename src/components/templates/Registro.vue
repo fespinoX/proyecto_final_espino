@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Registro</h1>    
+    <h1 class="page-guia">Registro</h1>    
 
     <v-form v-model="valid">
     <v-container>
@@ -13,7 +13,7 @@
             v-model="firstname"
             :rules="nameRules"
             :counter="10"
-            label="First name"
+            label="Nombre"
             required
           ></v-text-field>
         </v-col>
@@ -26,7 +26,7 @@
             v-model="lastname"
             :rules="nameRules"
             :counter="10"
-            label="Last name"
+            label="Apellido"
             required
           ></v-text-field>
         </v-col>
@@ -62,20 +62,23 @@
       valid: false,
       firstname: '',
       lastname: '',
+      registered: false,
       nameRules: [
-        v => !!v || 'Name is required',
-        v => v.length <= 10 || 'Name must be less than 10 characters',
+        v => !!v || 'Por favor complete este campo',
+        v => v.length >= 3 || 'Este campo debe contener al menos 3 caracteres',
       ],
       email: '',
       emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+/.test(v) || 'E-mail must be valid',
+        v => !!v || 'Por favor complete este campo',
+        v => /.+@.+/.test(v) || 'Por favor complete con una dirección de e-mail',
       ],
     }),
     methods: {
       submit() {
         if (this.valid) {
+          this.registered = true
           console.log("registrado el user " + this.firstname)
+          this.$emit('click', this.registered);
         }
       }
     }

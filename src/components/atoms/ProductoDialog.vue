@@ -1,10 +1,11 @@
 <template>
-  <v-dialog v-model="open">
+  <v-dialog v-model="open" @click:outside="$emit('manejarVentana', false)">
     <v-card>
       <v-card-title>
         <h1>{{ productoSeleccionado.nombre }}</h1>
       </v-card-title>
       <v-card-text>
+        <p>{{ productoSeleccionado.desc }}</p>
         <p>Precio: ${{productoSeleccionado.precio}}</p>
         <p>Cantidad disponible: {{productoSeleccionado.cantidad}}</p>
       </v-card-text>

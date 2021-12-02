@@ -21,6 +21,8 @@
     <ProductoDialog
       :productoSeleccionado="productoSeleccionado"
       :open="dialog"
+      @manejarVentana="manejarVentana($event)"
+      
     />
   </div>
 </template>
@@ -48,6 +50,9 @@
       verDetalle(product) {
         this.dialog = true;
         this.productoSeleccionado = product;
+      },
+      manejarVentana(estado) {
+        this.dialog = estado;
       },
     },
   }

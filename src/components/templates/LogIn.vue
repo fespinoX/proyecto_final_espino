@@ -1,93 +1,86 @@
 <template>
-  <v-container>
-    <v-row class="text-center">
-      <v-col cols="12">
-        <h2>Login</h2>
-      </v-col>
-      <form action=""></form>
-      <v-col cols="12">
-        <label for="">Nombre:</label>
-        <input type="text" value="nombre" v-model="nombre">
-        <p>{{nombre}}</p>
-      </v-col>
-      <v-col cols="12">
-        <label for="">Apellido:</label>
-        <input type="text" value="apellido" v-model="apellido">
-        <p>{{apellido}}</p>
-      </v-col>
-      <v-col cols="12">
-        <label for="">Edad:</label>
-        <select name="edad" id="edad" v-model="rangoedad">
-          <option value="<18">Menor de 18</option>
-          <option value="18-24">18 a 24</option>
-          <option value="24 - 30">24 a 30</option>
-          <option value="31 - 45">31 a 45</option>
-          <option value="46 - 60">46 a 60</option>
-          <option value=">60">Mayor de 60</option>
-        </select>
-        <p>{{rangoedad}}</p>
-      </v-col>
-      <v-col cols="12">
-        <div>
-          <input type="checkbox" v-model="lenguaje" value="js" id="checkJS">
-          <label for="checkJS">
-            JavaScript
-          </label>
-        </div>
-        <div>
-          <input type="checkbox" v-model="lenguaje" value="react" id="checkReact">
-          <label for="checkReact">
-            React
-          </label>
-        </div>
-        <div>
-          <input type="checkbox" v-model="lenguaje" value="angular" id="checkNg">
-          <label class="form-check-label text-start" for="checkNg">
-            Angular
-          </label>
-        </div>
-        <div>
-          <input type="checkbox" v-model="lenguaje" value="vue" id="checkVue">
-          <label for="checkVue">
-            Vue
-          </label>
-        </div>
+  <div>
+    <h1 class="page-guia">Login</h1>    
 
-        {{lenguaje}}
-      </v-col>
+    <v-form v-model="valid">
+    <v-container>
+      <v-row>
+        <v-col
+          cols="12"
+          md="4"
+        >
+          <v-text-field
+            v-model="firstname"
+            :rules="nameRules"
+            :counter="10"
+            label="First name"
+            required
+          ></v-text-field>
+        </v-col>
 
-      <v-col cols="12">
-        <button @click="enviarForm">Mandar</button>
-      </v-col>
-    </v-row>
-  </v-container>
+        <v-col
+          cols="12"
+          md="4"
+        >
+          <v-text-field
+            v-model="lastname"
+            :rules="nameRules"
+            :counter="10"
+            label="Last name"
+            required
+          ></v-text-field>
+        </v-col>
+
+        <v-col
+          cols="12"
+          md="4"
+        >
+          <v-text-field
+            v-model="email"
+            :rules="emailRules"
+            label="E-mail"
+            required
+          ></v-text-field>
+        </v-col>
+      </v-row>
+    </v-container>
+    <v-btn
+      class="mr-4"
+      @click="submit"
+    >
+      submit
+    </v-btn>
+  </v-form>
+  </div>
 </template>
 
 <script>
   export default {
-    name: 'Login',
+    name: 'Registro',
 
     data: () => ({
-      nombre: "",
-      apellido: "",
-      rangoedad: "",
-      lenguaje: []
+      valid: false,
+      firstname: '',
+      lastname: '',
+      registered: false,
+      nameRules: [
+        v => !!v || 'Name is required',
+        v => v.length <= 10 || 'Name must be less than 10 characters',
+      ],
+      email: '',
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+/.test(v) || 'E-mail must be valid',
+      ],
     }),
-
     methods: {
-      enviarForm() {
-        console.log("bienvenido " + this.nombre)
+      submit() {
+        if (this.valid) {
+          this.registered = true
+          console.log("registrado el user " + this.firstname)
+          this.$emit('click', this.registered);
+        }
       }
     }
   }
-
-  // hacer un console log q consolee el objeto con los datos de los fields
 </script>
-
-
-<style scoped>
-  input,
-  select {
-    border: 1px solid blue;
-  }
-</style>

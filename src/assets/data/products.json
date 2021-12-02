@@ -3,54 +3,63 @@
     "nombre": "Space Base",
     "precio": 32.28,
     "cantidad": 5,
-    "img": "spacebase"
+    "img": "spacebase",
+    "desc": "esta es la descripción del producto"
   },
   {
     "nombre": "Tiny Towns",
     "precio": 31.12,
     "cantidad": 0,
-    "img": "tinytowns"
+    "img": "tinytowns",
+    "desc": "esta es la descripción del producto"
   },
   {
     "nombre": "Land vs. Sea",
     "precio": 29.99,
     "cantidad": 5,
-    "img": "landvssea"
+    "img": "landvssea",
+    "desc": "esta es la descripción del producto"
   },
   {
     "nombre": "Cubirds",
     "precio": 15,
     "cantidad": 12,
-    "img": "cubirds"
+    "img": "cubirds",
+    "desc": "esta es la descripción del producto"
   },
   {
     "nombre": "Shifting Stones",
     "precio": 18.95,
     "cantidad": 10,
-    "img": "shiftingstones"
+    "img": "shiftingstones",
+    "desc": "esta es la descripción del producto"
   },
   {
     "nombre": "Codex Naturalis",
     "precio": 14.99,
     "cantidad": 2,
-    "img": "codexnaturalis"
+    "img": "codexnaturalis",
+    "desc": "esta es la descripción del producto"
   },
   {
     "nombre": "No, Thanks!",
     "precio": 9.95,
     "cantidad": 0,
-    "img": "nothanks"
+    "img": "nothanks",
+    "desc": "esta es la descripción del producto"
   },
   {
     "nombre": "Chai Tea for Two",
     "precio": 45.99,
     "cantidad": 0,
-    "img": "chaitea"
+    "img": "chaitea",
+    "desc": "esta es la descripción del producto"
   },
   {
     "nombre": "Downforce",
     "precio": 59.99,
     "cantidad": 7,
-    "img": "downforce"
+    "img": "downforce",
+    "desc": "esta es la descripción del producto"
   }
 ]
