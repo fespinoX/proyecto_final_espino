@@ -1,10 +1,56 @@
 <template>
   <div>
     <h1>Registro</h1>    
-    
 
+    <v-form v-model="valid">
+    <v-container>
+      <v-row>
+        <v-col
+          cols="12"
+          md="4"
+        >
+          <v-text-field
+            v-model="firstname"
+            :rules="nameRules"
+            :counter="10"
+            label="First name"
+            required
+          ></v-text-field>
+        </v-col>
 
+        <v-col
+          cols="12"
+          md="4"
+        >
+          <v-text-field
+            v-model="lastname"
+            :rules="nameRules"
+            :counter="10"
+            label="Last name"
+            required
+          ></v-text-field>
+        </v-col>
 
+        <v-col
+          cols="12"
+          md="4"
+        >
+          <v-text-field
+            v-model="email"
+            :rules="emailRules"
+            label="E-mail"
+            required
+          ></v-text-field>
+        </v-col>
+      </v-row>
+    </v-container>
+    <v-btn
+      class="mr-4"
+      @click="submit"
+    >
+      submit
+    </v-btn>
+  </v-form>
   </div>
 </template>
 
@@ -13,11 +59,25 @@
     name: 'Registro',
 
     data: () => ({
-      rules: [
-        value => !!value || 'Required.',
-        value => (value && value.length >= 3) || 'Min 3 characters',
+      valid: false,
+      firstname: '',
+      lastname: '',
+      nameRules: [
+        v => !!v || 'Name is required',
+        v => v.length <= 10 || 'Name must be less than 10 characters',
       ],
-      show1: false,
+      email: '',
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+/.test(v) || 'E-mail must be valid',
+      ],
     }),
+    methods: {
+      submit() {
+        if (this.valid) {
+          console.log("registrado el user " + this.firstname)
+        }
+      }
+    }
   }
 </script>
