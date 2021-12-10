@@ -13,6 +13,7 @@
 
       <div class="d-flex align-center">
         <router-link to="/carrito">Carrito</router-link>
+        <router-link to="/admin">Admin</router-link>
       </div>
 
     </v-app-bar>
@@ -44,6 +45,7 @@ TODO:
 
 * Agregar icono carrito
 * Agregar lógica de log in
+* Agregar lógica para que muestre los links en base al tipo de usuario
 
 
 
