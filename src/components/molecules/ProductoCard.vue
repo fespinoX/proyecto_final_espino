@@ -18,6 +18,7 @@
         <p>${{ product.price }}</p>
         <div v-if="product.qty > 0">
           <v-btn color="red" dark @click="verDetalle(product)">Ver mas</v-btn>
+          <v-btn color="green" dark @click="agregar(product)">Agregar al carrito</v-btn>
         </div>
         <v-chip v-else>
           Sin stock
@@ -62,6 +63,9 @@
       manejarVentana(estado) {
         this.dialog = estado;
       },
+      agregar (product) {
+        console.log("agregado " + product.name + " al carrito")
+      }
     },
   }
 
