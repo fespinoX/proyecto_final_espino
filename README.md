@@ -1,5 +1,9 @@
 # proyecto_final_espino
 
+## Acerca de este proyecto
+Este proyecto es la entrega final del curso de Vue JS de Coderhouse
+Es un e-commerce de juegos de mesa con panel de administración
+
 ## Project setup
 ```
 npm install
@@ -33,11 +37,8 @@ Si bien todavía el proyecto todavía no está separado por páginas, los compon
 https://github.com/fespinoX/proyecto_final_espino
 
 ### Notas de entrega parcial
-Aunque el registro todavía no almacena información, es necesario completarlo para poder ver el resto de la página.
 
-El diseño (y estilos CSS) se determinarán una vez que el proyecto final esté completo.
-
-La información del carrito está 'mockeada' en base a un json dentro de la carpeta data.
+La información del carrito está 'mockeada' usando mockapi.io
 
 
 ### Datos entrega
