@@ -7,7 +7,6 @@
         <div v-else>
           <ListadoPage 
           />
-          <CarritoPage />
         </div>
 
       </v-col>
@@ -21,14 +20,12 @@
   // Components
   import UserPage from './UserPage';
   import ListadoPage from './ListadoPage';
-  import CarritoPage from './CarritoPage';
 
   export default {
     name: 'MainPage',
     components: {
       UserPage,
       ListadoPage,
-      CarritoPage,
     },
 
     data: () => ({
