@@ -6,8 +6,9 @@
       </v-card-title>
       <v-card-text>
         <p>{{ productoSeleccionado.desc }}</p>
-        <p>Precio: ${{productoSeleccionado.precio}}</p>
-        <p>Cantidad disponible: {{productoSeleccionado.cantidad}}</p>
+        <p>Precio: ${{productoSeleccionado.price}}</p>
+        <p>Cantidad disponible: {{productoSeleccionado.qty}}</p>
+        <v-btn color="green" dark @click="agregar(productoSeleccionado)">Agregar al carrito</v-btn>
       </v-card-text>
     </v-card>
   </v-dialog>
@@ -15,11 +16,16 @@
 
 <script>
 export default {
-name: 'ProductoDialog',
+  name: 'ProductoDialog',
   props: {
     productoSeleccionado: Object,
     open: Boolean,
   },
+  methods: {
+    agregar () {
+      console.log("agregado " + this.productoSeleccionado.name + " al carrito")
+    }
+  }
 };
 </script>
 
