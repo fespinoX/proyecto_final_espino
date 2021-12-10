@@ -6,11 +6,11 @@
         :src="defaultImg"
       ></v-img>
       <v-card-title>
-        {{ product.nombre }}
+        {{ product.name }}
       </v-card-title>
       <v-card-text>
-        <p>${{ product.precio }}</p>
-        <div v-if="product.cantidad > 0">
+        <p>${{ product.price }}</p>
+        <div v-if="product.qty > 0">
           <v-btn color="red" dark @click="verDetalle(product)">Ver mas</v-btn>
         </div>
         <v-chip v-else>
@@ -29,7 +29,7 @@
 
 <script>
 
-  import defaultImg from "@/assets/img/default.jpg"
+  import defaultImg from "/assets/img/default.jpg"
 
   // Components
   import ProductoDialog from "../atoms/ProductoDialog.vue";
@@ -42,7 +42,8 @@
     data: () => ({
       dialog: false,
       productoSeleccionado: {},
-      defaultImg: defaultImg
+      defaultImg: defaultImg,
+      imgURL: ''
     }),
     props: {
       product: {

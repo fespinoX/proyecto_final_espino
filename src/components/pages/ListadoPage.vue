@@ -4,7 +4,7 @@
       <v-col cols="12">
         <h1>Listado Page</h1>
         <ListaProductos
-          :products="products"
+          :products="productos"
         />
       </v-col>
 
@@ -13,13 +13,14 @@
 </template>
 
 <script>
-
+  import axios from "axios"
   // Data
-  import products from "./../../assets/data/products.json"
+  // import products from "./../../assets/data/products.json"
 
   // Components
   import ListaProductos from '../templates/ListaProductos';
 
+  // mockapi URL : https://61b145c33c954f001722a877.mockapi.io/
 
   export default {
     name: 'ListadoPage',
@@ -28,7 +29,26 @@
     },
 
     data: () => ({
-      products,
+      productos: [],
     }),
+
+    mounted() {
+      this.$nextTick(function () {
+        // Code that will run only after the
+        // entire view has been rendered
+        axios
+          .get('https://61b145c33c954f001722a877.mockapi.io/productos')
+          .then(response => (this.info = response))
+          .then(data => {
+            this.productos = data.data
+            console.log(this.productos)
+          })
+          //.catch((err) => {console.error(`${err}`)})
+
+        console.log("HALAAAA")
+
+      })
+    }
   }
+    
 </script>

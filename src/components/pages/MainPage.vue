@@ -36,7 +36,7 @@
         id: '',
         name: ''
       },
-      registered: false
+      registered: true
     }),
 
     methods: {
@@ -55,6 +55,6 @@
   componentes mientras estoy desarrollando
   */
   .page-guia {
-    display: none;
+    /*display: none;*/
   }
 </style>
