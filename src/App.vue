@@ -6,13 +6,12 @@
       dark
     >
       <div class="d-flex align-center">
-        <h1>Tiendita</h1>
+        <router-link to="/">Tiendita</router-link>
       </div>
 
       <v-spacer></v-spacer>
 
       <div class="d-flex align-center">
-        <router-link to="/">Home</router-link> |
         <router-link to="/carrito">Carrito</router-link>
       </div>
 
@@ -38,6 +37,18 @@ export default {
 
   }),
 };
+
+/*
+
+TODO: 
+
+* Agregar icono carrito
+* Agregar lógica de log in
+
+
+
+*/
+
 </script>
 
 <style lang="sass" scoped>

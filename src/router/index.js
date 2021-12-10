@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import MainPage from '../components/pages/MainPage.vue'
-//import CarritoPage from '../pages/CarritoPage.vue'
+import CarritoPage from '../components/pages/CarritoPage.vue'
+import AdminPage from '../components/pages/AdminPage.vue'
 
 Vue.use(VueRouter)
 
@@ -14,11 +15,13 @@ const routes = [
   {
     path: '/carrito',
     name: 'CarritoPage',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import('../components/pages/CarritoPage.vue')
-  }
+    component: CarritoPage
+  },
+  {
+    path: '/admin',
+    name: 'AdminPage',
+    component: AdminPage
+  },
 ]
 
 const router = new VueRouter({

@@ -1,7 +1,7 @@
 <template>
     <v-data-table
         :headers="carritoHeader"
-        :items="productscarrito"
+        :items="products"
         class="elevation-1"
         hide-default-footer
     >
@@ -11,32 +11,52 @@
 
 <script>
 
-  // Data
-  import productscarrito from "./../../assets/data/productscarrito.json"
 
   export default {
     name: 'ProductosTabla',
     props: {
+      products: {
+        type: Array,
+      }
     },
     data: () => ({
-      productscarrito,
       carritoHeader: [
         {
           text: "Nombre del producto",
-          value: "nombre"
-        },
-        {
-          text: "Precio",
-          value: "precio"
+          value: "name"
         },
         {
           text: "Cantidad",
-          value: "cantidad"
-        },
+          value: "qty"
+        },          
+        {
+          text: "Precio",
+          value: "price"
+        },      
       ]
     }),
+    mounted() {
+      console.log("hala")
+    },
+    methods: {
+      borrarProducto() {
+        
+      },
+      editarProducto() {
+        
+      }
+    }
   }
 
-// los headers y los productos pueden ir a data
+/* 
+
+TODO:
+
+* Mostrar imagen
+* DELETE: Agregar botón de borrar para eliminar
+* PUT: Agregar botón de edit para editar
+
+*/
 
 </script>
+
