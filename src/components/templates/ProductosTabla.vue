@@ -1,4 +1,5 @@
 <template>
+  <div>
     <v-data-table
       :headers="tablaHeader"
       :items="productos"
@@ -28,7 +29,7 @@
                 rounded
               >
                 <v-btn
-                  @click="levantarModalEdit(item.id)"
+                  @click="editarProducto(item.id)"
                   color="green"
                   small
                 >
@@ -51,29 +52,29 @@
                 </v-btn>
               </v-btn-toggle>
             </td>
-             <EditDialog
-              :productoSeleccionado="item.id"
-              :open="edialog"
-              @manejarVentana="manejarVentana($event)"
-              
-            />
           </tr>
         </tbody>
       </template>
     </v-data-table>
+
+    <h2 class="mt-4">Editar un producto</h2>
+
+    <EditProductForm v-if="productid !=''" :productid="productid" @submit="editadoNotification"/>
+
+  </div>
 </template>
 
 <script>
 
-  // Components
-  import EditDialog from "../atoms/EditDialog.vue";
-
   import axios from "axios"
+
+  // Components
+  import EditProductForm from '../molecules/EditProductForm';
 
   export default {
     name: 'ProductosTabla',
     components: {
-      EditDialog
+      EditProductForm
     },
     props: {
     },
@@ -100,9 +101,9 @@
         }
       ],
       productos: [],
+      productid: '',
       imgURL: '/assets/img/',
       imgExt: '.jpg',
-      edialog: false,
     }),
 
     methods: {
@@ -118,11 +119,12 @@
       },
 
       editarProducto(id) {
+        this.productid = id
         console.log("editar el producto " + id)
+        
       },
 
       borrarProducto(id) {
-
 
         axios
           .delete(
@@ -134,17 +136,13 @@
           })
           .catch((err) => {console.error(`${err}`)})
 
-
       },
 
-      levantarModalEdit(id) {
-        this.edialog = true;
-        this.productoSeleccionado = id;
-      },
-
-      manejarVentana(estado) {
-        this.edialog = estado;
-      },      
+      editadoNotification(editadoname) {
+        console.log("se edito re bien: ", editadoname)
+        this.productid = ''
+        this.levantarProductos()
+      }
 
     },
     mounted() {
@@ -159,7 +157,7 @@
 TODO:
 
 * DELETE: Agregar confirm dialog
-* PUT: Agregar botón de edit para editar
+* PUT: Agregar alerta de confirmación
 
 */
 

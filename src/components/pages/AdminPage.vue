@@ -5,10 +5,13 @@
         <h1>Admin Page</h1>
         <p>Bienvenido: ACAVAELUSER</p>
         
+        <h2 class="mt-4">Lista productos</h2>
         <p>Estos son tus productos disponibles:</p>
         <ProductosTabla />
 
-        <p>Cargar un nuevo producto</p>
+        <h2 class="mt-4">Cargar un nuevo producto</h2>
+
+        <AddProductForm />
 
       </v-col>
 
@@ -19,13 +22,15 @@
 <script>
 
   // Components
-  import ProductosTabla from '../molecules/ProductosTabla';
+  import ProductosTabla from '../templates/ProductosTabla';
+  import AddProductForm from '../molecules/AddProductForm';
 
 
   export default {
     name: 'AdminPage',
     components: {
-      ProductosTabla, 
+      ProductosTabla,
+      AddProductForm
     },
 
     data: () => ({
@@ -38,7 +43,8 @@
 /*
 TODO:
 
-* Cargar nuevo producto
+* Editar productos
+
 
 
 */

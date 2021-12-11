@@ -18,7 +18,7 @@
 <script>
 
   //Components
-  import ProductosTabla from '../molecules/ProductosTabla.vue'
+  import ProductosTabla from '../templates/ProductosTabla.vue'
 
 
   export default {
