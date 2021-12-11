@@ -57,9 +57,9 @@
       </template>
     </v-data-table>
 
-    <h2 class="mt-4">Editar un producto</h2>
-
     <EditProductForm v-if="productid !=''" :productid="productid" @submit="editadoNotification"/>
+    <v-btn class="my-4" @click="mostrarAdd" v-if="!mostraradd">Agregar producto</v-btn>
+    <AddProductForm v-if="mostraradd" />
 
   </div>
 </template>
@@ -70,11 +70,13 @@
 
   // Components
   import EditProductForm from '../molecules/EditProductForm';
+  import AddProductForm from '../molecules/AddProductForm';
 
   export default {
     name: 'ProductosTabla',
     components: {
-      EditProductForm
+      EditProductForm,
+      AddProductForm
     },
     props: {
     },
@@ -102,6 +104,7 @@
       ],
       productos: [],
       productid: '',
+      mostraradd: false,
       imgURL: '/assets/img/',
       imgExt: '.jpg',
     }),
@@ -142,9 +145,14 @@
         console.log("se edito re bien: ", editadoname)
         this.productid = ''
         this.levantarProductos()
-      }
+      },
+
+      mostrarAdd() {
+        this.mostraradd = true
+      },
 
     },
+    
     mounted() {
       this.$nextTick(function () {
           this.levantarProductos()
@@ -158,6 +166,7 @@ TODO:
 
 * DELETE: Agregar confirm dialog
 * PUT: Agregar alerta de confirmación
+* POST: Que el formulario aparezca con un botón de agregar
 
 */
 

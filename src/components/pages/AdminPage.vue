@@ -9,10 +9,6 @@
         <p>Estos son tus productos disponibles:</p>
         <ProductosTabla />
 
-        <h2 class="mt-4">Cargar un nuevo producto</h2>
-
-        <AddProductForm />
-
       </v-col>
 
     </v-row>
@@ -23,18 +19,15 @@
 
   // Components
   import ProductosTabla from '../templates/ProductosTabla';
-  import AddProductForm from '../molecules/AddProductForm';
-
 
   export default {
     name: 'AdminPage',
     components: {
       ProductosTabla,
-      AddProductForm
     },
 
     data: () => ({
-        productos: []
+        productos: [],
     }),
     methods: {
     },
@@ -43,8 +36,8 @@
 /*
 TODO:
 
-* Editar productos
-
+* POST: Agregar alert de confirmación
+* Lista de pedidos (en base a carritos)
 
 
 */

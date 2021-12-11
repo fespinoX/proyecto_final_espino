@@ -1,80 +1,83 @@
 <template>
-  <v-form
-    v-model="valid"
-  >
-    <v-container>
-      <v-row>
-
-        <v-col
-          cols="12"
-        >
-          <!-- <v-file-input
-            v-model="img"
-            accept="image/png, image/jpeg"
-            label="Imagen"
-            prepend-icon="mdi-camera"
-          ></v-file-input> -->
-        </v-col>
-
-         <v-col
-          cols="12"
-        >
-          <v-text-field
-            v-model="editproduct.name"
-            :rules="nameRules"
-            :counter="10"
-            label="Producto"
-            required
-          ></v-text-field>
-        </v-col>
-
-         <v-col
-          cols="12"
-        >
-          <v-text-field
-            v-model="editproduct.desc"
-            :rules="nameRules"
-            :counter="10"
-            label="Descripción"
-            required
-          ></v-text-field>
-        </v-col>        
-
-        <v-col
-          cols="12"
-        >
-          <v-text-field
-            v-model="editproduct.qty"
-            :rules="numberRules"
-            :counter="10"
-            label="Cantidad"
-            required
-            type="number"
-          ></v-text-field>
-        </v-col>
-
-        <v-col
-          cols="12"
-        >
-          <v-text-field
-            v-model="editproduct.price"
-            :rules="numberRules"
-            :counter="10"
-            label="Precio"
-            required
-            type="number"
-          ></v-text-field>
-        </v-col>                
-
-      </v-row>
-    </v-container>
-    <v-btn
-      class="mr-4"
-      @click="submit"
+  <div>
+    <h2 class="mt-4">Editar Producto</h2>
+    <v-form
+      v-model="valid"
     >
-      Editar
-    </v-btn>
-  </v-form>
+      <v-container>
+        <v-row>
+
+          <v-col
+            cols="12"
+          >
+            <!-- <v-file-input
+              v-model="img"
+              accept="image/png, image/jpeg"
+              label="Imagen"
+              prepend-icon="mdi-camera"
+            ></v-file-input> -->
+          </v-col>
+
+          <v-col
+            cols="12"
+          >
+            <v-text-field
+              v-model="editproduct.name"
+              :rules="nameRules"
+              :counter="10"
+              label="Producto"
+              required
+            ></v-text-field>
+          </v-col>
+
+          <v-col
+            cols="12"
+          >
+            <v-text-field
+              v-model="editproduct.desc"
+              :rules="nameRules"
+              :counter="10"
+              label="Descripción"
+              required
+            ></v-text-field>
+          </v-col>        
+
+          <v-col
+            cols="12"
+          >
+            <v-text-field
+              v-model="editproduct.qty"
+              :rules="numberRules"
+              :counter="10"
+              label="Cantidad"
+              required
+              type="number"
+            ></v-text-field>
+          </v-col>
+
+          <v-col
+            cols="12"
+          >
+            <v-text-field
+              v-model="editproduct.price"
+              :rules="numberRules"
+              :counter="10"
+              label="Precio"
+              required
+              type="number"
+            ></v-text-field>
+          </v-col>                
+
+        </v-row>
+      </v-container>
+      <v-btn
+        class="mr-4"
+        @click="submit"
+      >
+        Editar
+      </v-btn>
+    </v-form>
+  </div>
 </template>
 
 <script>

@@ -1,78 +1,81 @@
 <template>
-  <v-form v-model="valid">
-    <v-container>
-      <v-row>
+  <div>
+    <h2 class="mt-4">Agregar un producto nuevo</h2>
+    <v-form v-model="valid">
+      <v-container>
+        <v-row>
 
-        <v-col
-          cols="12"
-        >
-          <!-- <v-file-input
-            v-model="img"
-            accept="image/png, image/jpeg"
-            label="Imagen"
-            prepend-icon="mdi-camera"
-          ></v-file-input> -->
-        </v-col>
+          <v-col
+            cols="12"
+          >
+            <!-- <v-file-input
+              v-model="img"
+              accept="image/png, image/jpeg"
+              label="Imagen"
+              prepend-icon="mdi-camera"
+            ></v-file-input> -->
+          </v-col>
 
-         <v-col
-          cols="12"
-        >
-          <v-text-field
-            v-model="name"
-            :rules="nameRules"
-            :counter="10"
-            label="Producto"
-            required
-          ></v-text-field>
-        </v-col>
+          <v-col
+            cols="12"
+          >
+            <v-text-field
+              v-model="name"
+              :rules="nameRules"
+              :counter="10"
+              label="Producto"
+              required
+            ></v-text-field>
+          </v-col>
 
-         <v-col
-          cols="12"
-        >
-          <v-text-field
-            v-model="desc"
-            :rules="nameRules"
-            :counter="10"
-            label="Descripción"
-            required
-          ></v-text-field>
-        </v-col>        
+          <v-col
+            cols="12"
+          >
+            <v-text-field
+              v-model="desc"
+              :rules="nameRules"
+              :counter="10"
+              label="Descripción"
+              required
+            ></v-text-field>
+          </v-col>        
 
-        <v-col
-          cols="12"
-        >
-          <v-text-field
-            v-model="qty"
-            :rules="numberRules"
-            :counter="10"
-            label="Cantidad"
-            required
-            type="number"
-          ></v-text-field>
-        </v-col>
+          <v-col
+            cols="12"
+          >
+            <v-text-field
+              v-model="qty"
+              :rules="numberRules"
+              :counter="10"
+              label="Cantidad"
+              required
+              type="number"
+            ></v-text-field>
+          </v-col>
 
-        <v-col
-          cols="12"
-        >
-          <v-text-field
-            v-model="price"
-            :rules="numberRules"
-            :counter="10"
-            label="Precio"
-            required
-            type="number"
-          ></v-text-field>
-        </v-col>                
+          <v-col
+            cols="12"
+          >
+            <v-text-field
+              v-model="price"
+              :rules="numberRules"
+              :counter="10"
+              label="Precio"
+              required
+              type="number"
+            ></v-text-field>
+          </v-col>                
 
-      </v-row>
-    </v-container>
-    <v-btn
-      class="mr-4"
-      @click="submit"
-    >
-      Agregar
-    </v-btn>
-  </v-form>
+        </v-row>
+      </v-container>
+      <v-btn
+        class="mr-4"
+        @click="submit"
+      >
+        Agregar
+      </v-btn>
+    </v-form>
+  </div>
 </template>
 
 <script>
@@ -129,10 +132,10 @@
           .then((data) => {
             console.log("Agregado el producto:", this.name);
             console.log("Data es:", data);
-            // this.levantarProductos() esto lo tiene que hacer el padre
           })
           .catch((err) => {console.error(`${err}`)})
-      }
+      },
+
     },
   }
 
@@ -142,7 +145,8 @@ TODO:
 
 * Agregar carga de imágenes con validación
 * Validación en el click del botón
-* Lista de pedidos (en base a carritos)
+
+* Vaciar/ocultar form y alerta despues de agregar
 
 */
 
