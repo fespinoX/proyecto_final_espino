@@ -5,6 +5,7 @@
    "admin": true,
    "lastName": "Espino",
    "user": "fespinox",
+   "email": "florencia.espino@gmail.com",
    "password": "Fespi123",
    "id": "1"
   },
@@ -14,6 +15,7 @@
    "admin": false,
    "lastName": "Mattel",
    "user": "trixi3",
+   "email": "trixie@gmail.com",
    "password": "Trixie123",
    "id": "2"
   },
@@ -23,6 +25,7 @@
    "admin": false,
    "lastName": "Zamo",
    "user": "z4mo",
+   "email": "katya@gmail.com",
    "password": "Katya123",
    "id": "3"
   },
@@ -32,6 +35,7 @@
    "admin": false,
    "lastName": "Luzon",
    "user": "m4nila",
+   "email": "manila@gmail.com",
    "password": "Manila123",
    "id": "4"
   },
@@ -41,6 +45,7 @@
    "admin": false,
    "lastName": "Thunder",
    "user": "alaska5000",
+   "email": "alaska@gmail.com",
    "password": "Alaska123",
    "id": "5"
   },
@@ -50,6 +55,7 @@
    "admin": false,
    "lastName": "Morgan",
    "user": "thed3x",
+   "email": "dexter@gmail.com",
    "password": "Dexter123",
    "id": "6"
   }

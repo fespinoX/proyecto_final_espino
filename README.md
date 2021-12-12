@@ -57,8 +57,11 @@ https://61b145c33c954f001722a877.mockapi.io/
 ___
 
 ## Datos entrega
+
 Alumna: Florencia Espino
+
 Tutor: Diego Mafferra
+
 Trabajo: Segunda Entrega del Proyecto Final
 
 ___
@@ -80,3 +83,22 @@ ___
 * Editar Pedido: Confirm antes de editar
 
 * Borrar Pedido: Confirm antes de borrar
+
+* Usuarios: Mostrar lista
+* Editar Usuarios
+* Borrar Usuarios
+* Agregar Usuarios
+
+### Cliente
+
+* Carrito: levantar, editar, borrar
+* Guardar Carrito en localstorage
+* Una vez que se submitea la orden que se almacene en pedidos
+
+
+### User
+
+* users: POST
+* Autenticar pegándole al endpoint
+* hashear contraseñas
+* introducir psw dos veces y comparar
