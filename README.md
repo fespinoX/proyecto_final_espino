@@ -27,6 +27,8 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+___
+
 ## Atomic design
 Los componentes fueron creados siguiendo los principios de diseño Atomic Design
 https://www.uifrommars.com/atomic-design-ventajas/
@@ -40,6 +42,26 @@ https://github.com/fespinoX/proyecto_final_espino
 Se agregaron imágenes a la carpeta public/assets/img para probar agregar productos con foto.
 
 Las imágenes disponisbles son: "brass", "dinosaurisland", "thenetworks", "istanbul"
+
+
+## DB
+
+La información de users, productos y pedidos carrito está 'mockeada' usando mockapi.io.
+
+Se puede encontrar los archivos de data iniciales en src/assets/data dentro del proyecto.
+
+### Endpoint
+
+https://61b145c33c954f001722a877.mockapi.io/
+
+___
+
+## Datos entrega
+Alumna: Florencia Espino
+Tutor: Diego Mafferra
+Trabajo: Segunda Entrega del Proyecto Final
+
+___
 
 ## Pendientes TODO:
 
@@ -58,13 +80,3 @@ Las imágenes disponisbles son: "brass", "dinosaurisland", "thenetworks", "istan
 * Editar Pedido: Confirm antes de editar
 
 * Borrar Pedido: Confirm antes de borrar
-
-## Notas de entrega parcial
-
-La información del carrito está 'mockeada' usando mockapi.io
-
-
-## Datos entrega
-Alumna: Florencia Espino
-Tutor: Diego Mafferra
-Trabajo: Primera Entrega del Proyecto Final
