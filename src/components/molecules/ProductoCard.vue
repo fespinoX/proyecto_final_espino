@@ -20,7 +20,10 @@
           <v-btn color="red" dark @click="verDetalle(product)">Ver mas</v-btn>
           <v-btn color="green" dark @click="agregar(product)">Agregar al carrito</v-btn>
         </div>
-        <v-chip v-else>
+        <v-chip 
+          color="red"
+          v-else
+        >
           Sin stock
         </v-chip>
       </v-card-text> 

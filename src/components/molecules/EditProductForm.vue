@@ -40,7 +40,19 @@
               label="Descripción"
               required
             ></v-text-field>
-          </v-col>        
+          </v-col>
+
+          <v-col
+            cols="12"
+          >
+            <v-text-field
+              v-model="editproduct.img"
+              :rules="nameRules"
+              :counter="10"
+              label="Nombre de la imagen"
+              required
+            ></v-text-field>
+          </v-col>                  
 
           <v-col
             cols="12"
@@ -92,6 +104,7 @@
       editproduct: {
         name: '',
         desc: '',
+        img: '',
         qty: '',
         price: '',
       },
@@ -125,6 +138,7 @@
           name: '',
           desc: '',
           qty: '',
+          img: '',
           price: '',
         }
         axios
@@ -151,8 +165,6 @@
           })
           .catch((err) => {console.error(`${err}`)})
 
-          
-          
       },
 
       vaciarForm() {
@@ -160,6 +172,7 @@
         this.editproduct = {
           name: '',
           desc: '',
+          img: '',
           qty: '',
           price: '',
         }
@@ -180,16 +193,6 @@
     }       
 
   }
-
-/*
-
-TODO:
-
-* Agregar carga de imágenes con validación
-* Validación en el click del botón
-* Lista de pedidos (en base a carritos)
-
-*/
 
 </script>
 

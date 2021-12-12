@@ -1,0 +1,56 @@
+[
+  {
+   "firstName": "Fespi",
+   "avatar": "https://cdn.fakercloud.com/avatars/jervo_128.jpg",
+   "admin": true,
+   "lastName": "Espino",
+   "user": "fespinox",
+   "password": "Fespi123",
+   "id": "1"
+  },
+  {
+   "firstName": "Trixie",
+   "avatar": "https://cdn.fakercloud.com/avatars/beweinreich_128.jpg",
+   "admin": false,
+   "lastName": "Mattel",
+   "user": "trixi3",
+   "password": "Trixie123",
+   "id": "2"
+  },
+  {
+   "firstName": "Katya",
+   "avatar": "https://cdn.fakercloud.com/avatars/creartinc_128.jpg",
+   "admin": false,
+   "lastName": "Zamo",
+   "user": "z4mo",
+   "password": "Katya123",
+   "id": "3"
+  },
+  {
+   "firstName": "Manila",
+   "avatar": "https://cdn.fakercloud.com/avatars/twittypork_128.jpg",
+   "admin": false,
+   "lastName": "Luzon",
+   "user": "m4nila",
+   "password": "Manila123",
+   "id": "4"
+  },
+  {
+   "firstName": "Alaska",
+   "avatar": "https://cdn.fakercloud.com/avatars/dzantievm_128.jpg",
+   "admin": false,
+   "lastName": "Thunder",
+   "user": "alaska5000",
+   "password": "Alaska123",
+   "id": "5"
+  },
+  {
+   "firstName": "Dexter",
+   "avatar": "https://cdn.fakercloud.com/avatars/aio____128.jpg",
+   "admin": false,
+   "lastName": "Morgan",
+   "user": "thed3x",
+   "password": "Dexter123",
+   "id": "6"
+  }
+ ]

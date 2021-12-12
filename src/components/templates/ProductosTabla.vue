@@ -22,7 +22,20 @@
               ></v-img>
             </td>
             <td class="text-left">{{ item.name }}</td>
-            <td class="text-left">{{ item.qty }}</td>
+            <td class="text-left">
+              <span
+                v-if="item.qty > 0"
+              >
+                {{ item.qty }}
+              </span>
+              <v-chip 
+                color="red"
+                v-else
+                small
+              >
+                Sin stock
+              </v-chip>
+            </td>
             <td class="text-left">{{ item.price }}</td>
             <td class="text-left">
               <v-btn-toggle
@@ -166,7 +179,6 @@ TODO:
 
 * DELETE: Agregar confirm dialog
 * PUT: Agregar alerta de confirmación
-* POST: Que el formulario aparezca con un botón de agregar
 
 */
 

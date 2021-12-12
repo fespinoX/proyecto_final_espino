@@ -27,21 +27,44 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-### Atomic design
+## Atomic design
 Los componentes fueron creados siguiendo los principios de diseño Atomic Design
 https://www.uifrommars.com/atomic-design-ventajas/
-Si bien todavía el proyecto todavía no está separado por páginas, los componentes se encuentran divididos de esa manera para facilitar el progreso.
 
 
-### Github
+## Github
 https://github.com/fespinoX/proyecto_final_espino
 
-### Notas de entrega parcial
+
+## Agregar productos con imagen
+Se agregaron imágenes a la carpeta public/assets/img para probar agregar productos con foto.
+
+Las imágenes disponisbles son: "brass", "dinosaurisland", "thenetworks", "istanbul"
+
+## Pendientes TODO:
+
+### Admin
+
+* Agregar Producto: Botón de cancelar
+* Agregar Producto: Validación al hacer click en agregar
+* Agregar Producto: Confirm antes de agregar
+* Agregar Producto: Limpiar y ocultar formulario
+
+* Editar Producto: Botón de cancelar
+* Editar Producto: Confirm antes de editar
+
+* Borrar Producto: Confirm antes de borrar
+
+* Editar Pedido: Confirm antes de editar
+
+* Borrar Pedido: Confirm antes de borrar
+
+## Notas de entrega parcial
 
 La información del carrito está 'mockeada' usando mockapi.io
 
 
-### Datos entrega
+## Datos entrega
 Alumna: Florencia Espino
 Tutor: Diego Mafferra
 Trabajo: Primera Entrega del Proyecto Final

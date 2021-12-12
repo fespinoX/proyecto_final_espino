@@ -38,8 +38,20 @@
               label="Descripción"
               required
             ></v-text-field>
-          </v-col>        
+          </v-col>
 
+          <v-col
+            cols="12"
+          >
+            <v-text-field
+              v-model="img"
+              :rules="nameRules"
+              :counter="10"
+              label="Nombre de la imagen"
+              required
+            ></v-text-field>
+          </v-col>          
+          
           <v-col
             cols="12"
           >
@@ -113,7 +125,7 @@
             "name": this.name,
             "qty": this.qty,
             "desc": this.desc,
-            "img": "",
+            "img": this.img,
             "price": this.price,
           }
           this.agregarProducto()
@@ -139,16 +151,6 @@
     },
   }
 
-/*
-
-TODO:
-
-* Agregar carga de imágenes con validación
-* Validación en el click del botón
-
-* Vaciar/ocultar form y alerta despues de agregar
-
-*/
 
 </script>
 
