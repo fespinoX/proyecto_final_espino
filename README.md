@@ -91,8 +91,16 @@ ___
 
 ### Cliente
 
-* Carrito: levantar, editar, borrar
-* Guardar Carrito en localstorage
+* Agregar icono de carrito
+
+* Carrito: Alerta cuando se agrega al carrito desde la producto card
+* Carrito: Alerta cuando se agrega al carrito y cerrar el dialog
+* Carrito: Que checkee si ya existe el item en el carrito, si existe agregar la cantidad al objeto correspondiente
+* Carrito: editar
+* Carrito: confirm antes de borrar
+* Carrito: mensaje de ok cuando se borra
+* Carrito: boton de vaciar carrito
+* Carrito: mensaje si el carrito esta vacio
 * Una vez que se submitea la orden que se almacene en pedidos
 
 
@@ -102,3 +110,4 @@ ___
 * Autenticar pegándole al endpoint
 * hashear contraseñas
 * introducir psw dos veces y comparar
+* Agregar lógica para que muestre los links y el content en base al tipo de usuario

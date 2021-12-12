@@ -41,11 +41,8 @@
           .then(response => (this.info = response))
           .then(data => {
             this.productos = data.data
-            console.log(this.productos)
           })
           //.catch((err) => {console.error(`${err}`)})
-
-        console.log("HALAAAA")
 
       })
     }

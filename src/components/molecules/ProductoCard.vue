@@ -18,7 +18,7 @@
         <p>${{ product.price }}</p>
         <div v-if="product.qty > 0">
           <v-btn color="red" dark @click="verDetalle(product)">Ver mas</v-btn>
-          <v-btn color="green" dark @click="agregar(product)">Agregar al carrito</v-btn>
+          <v-btn color="green" dark @click="agregarAlCarrito(product)">Agregar al carrito</v-btn>
         </div>
         <v-chip 
           color="red"
@@ -51,7 +51,14 @@
       dialog: false,
       productoSeleccionado: {},
       imgURL: '/assets/img/',
-      imgExt: '.jpg'
+      imgExt: '.jpg',
+      productoAgregado: {
+        id: '',
+        qty: 1,
+        name: '',
+        price: '',
+        img: '',
+      },      
     }),
     props: {
       product: {
@@ -66,9 +73,27 @@
       manejarVentana(estado) {
         this.dialog = estado;
       },
-      agregar (product) {
-        console.log("agregado " + product.name + " al carrito")
-      }
+      agregarAlCarrito (product) {
+        this.productoAgregado.id = product.id
+        this.productoAgregado.name = product.name
+        this.productoAgregado.price = product.price
+        this.productoAgregado.img = product.img
+        this.setInLs()
+        console.log("el carrito del ls: ")
+        console.log(localStorage.getItem('carrito'))
+        console.log("agregado " + this.productoAgregado.name + " al carrito")
+      },
+      setInLs () {
+        let carrito = []
+        if(!localStorage.getItem('carrito')) {
+          carrito.push(this.productoAgregado);
+          localStorage.setItem('carrito', JSON.stringify(carrito))
+        } else {
+          carrito = JSON.parse(localStorage.getItem('carrito'))
+          carrito.push(this.productoAgregado);
+          localStorage.setItem('carrito', JSON.stringify(carrito))
+        }
+      }      
     },
   }
 

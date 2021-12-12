@@ -111,9 +111,8 @@
       ],
       numberRules: [
         v => !!v || 'Por favor complete este campo',
-        v => v >= 0 || 'Este campo debe ser mayor a 0',
+        v => v >= 0 || 'Este campo debe ser mayor o igual a 0',
       ],
-      // img no es required, para eso está default.jpg
     }),
     props: {
 

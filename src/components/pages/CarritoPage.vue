@@ -8,7 +8,7 @@
     </v-row>
     <v-row>
       <v-col>
-        <ProductosTabla
+        <CarritoTabla
         />
       </v-col>
     </v-row>
@@ -18,12 +18,12 @@
 <script>
 
   //Components
-  import ProductosTabla from '../templates/ProductosTabla.vue'
+  import CarritoTabla from '../templates/CarritoTabla.vue'
 
 
   export default {
     components: { 
-      ProductosTabla 
+      CarritoTabla 
     },
     name: 'CarritoPage',
     props: {
@@ -35,12 +35,4 @@
     }),
   }
 
-/*
-TODO: 
-* Editar el mock para que levante el carrito por usuario
-* GET: Levantar carrito de axios 
-* DELETE: Agregar botón de borrar para sacar del carrito
-* PUT: Editar la cantidad de un producto
-
-*/
 </script>

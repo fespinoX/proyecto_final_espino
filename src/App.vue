@@ -35,21 +35,30 @@ export default {
   },
 
   data: () => ({
-
+    currentuser: {
+      "firstName": "Trixie",
+      "avatar": "https://cdn.fakercloud.com/avatars/beweinreich_128.jpg",
+      "admin": false,
+      "lastName": "Mattel",
+      "user": "trixi3",
+      "email": "trixie@gmail.com",
+      "password": "Trixie123",
+      "id": "2"
+    }
   }),
+  methods: {
+    lsSetUser() {
+      localStorage.setItem('user', JSON.stringify(this.currentuser))
+      // console.log("el user del ls es: " + JSON.parse(localStorage.getItem('user')).firstName);
+    },
+
+  },
+  mounted() {
+    this.$nextTick(function () {
+        this.lsSetUser()
+    })
+  }    
 };
-
-/*
-
-TODO: 
-
-* Agregar icono carrito
-* Agregar lógica de log in
-* Agregar lógica para que muestre los links en base al tipo de usuario
-
-
-
-*/
 
 </script>
 
