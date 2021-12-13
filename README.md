@@ -107,6 +107,8 @@ ___
 * Carrito: confirm antes de mandar pedido
 * Carrito: mensaje de ok cuando se manda el pedido
 
+* Limitar cantidad de producto que se puede agregar al stock
+
 #### Nice to have
 
 
