@@ -70,28 +70,30 @@ ___
 
 ### Admin
 
+#### Must
+
 * Agregar Producto: Botón de cancelar
 * Agregar Producto: Validación al hacer click en agregar
 * Agregar Producto: Confirm antes de agregar
 * Agregar Producto: Limpiar y ocultar formulario
-
 * Editar Producto: Botón de cancelar
 * Editar Producto: Confirm antes de editar
-
 * Borrar Producto: Confirm antes de borrar
 
 * Editar Pedido: Confirm antes de editar
-
 * Borrar Pedido: Confirm antes de borrar
+
+#### Nice to have
 
 * Usuarios: Mostrar lista
 * Editar Usuarios
 * Borrar Usuarios
 * Agregar Usuarios
 
+
 ### Cliente
 
-* Agregar icono de carrito
+#### Must
 
 * Carrito: Alerta cuando se agrega al carrito desde la producto card
 * Carrito: Alerta cuando se agrega al carrito y cerrar el dialog
@@ -101,17 +103,20 @@ ___
 * Carrito: mensaje de ok cuando se borra
 * Carrito: confirm antes de vaciar carrito
 * Carrito: calcular el total
-* Carrito: Completar compra
-* Carrito: Una vez que se submitea la orden que se almacene en pedidos
+* Carrito: confirm antes de mandar pedido
+* Carrito: mensaje de ok cuando se manda el pedido
+
+#### Nice to have
 
 
 ### User
 
-* users: POST
-* Autenticar pegándole al endpoint
+#### Must
 * Hardocdear el access
-* Dropdown con el Avatar para poner el logout
 * Agregar lógica para que muestre los links y el content en base al tipo de usuario
+* Redireccionar una vez q se loguea
+* Redireccionar una vez q se desloguea
 
+#### Nice to have
 * hashear contraseñas
 * introducir psw dos veces y comparar

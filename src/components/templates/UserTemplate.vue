@@ -3,8 +3,8 @@
     <v-row class="text-center">
       <v-col cols="12">
         <h1 class="page-guia">User Page</h1>
-        <Registro @click="submit" />
-        <LogIn v-show="false" />
+        <LogIn v-if="showLogin" @click="showRegister" />
+        <Registro v-else @click="hideRegister" />
       </v-col>
 
     </v-row>
@@ -18,7 +18,7 @@
 
 
   export default {
-    name: 'UserPage',
+    name: 'UserTemplate',
     components: {
       Registro,
       LogIn
@@ -26,14 +26,22 @@
     },
 
     data: () => ({
-        registered: false,
+      logueado: false,
+      showLogin: true
+      
     }),
 
     methods : {
       submit(estado) {
-        this.registered = estado
-        this.$emit('change', this.registered);
-      }
+        this.logueado = estado
+        this.$emit('change', this.logueado);
+      },
+      showRegister() {
+        this.showLogin = false
+      },
+      hideRegister() {
+        this.showLogin = true
+      }      
     }
   }
 </script>

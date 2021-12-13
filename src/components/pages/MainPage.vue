@@ -1,31 +1,37 @@
 <template>
-  <v-container>
-    <v-row class="text-center">
-      <v-col cols="12">
-        <h1 class="page-guia">Main Page</h1>
-        <UserPage v-if="!registered" @change="submit" />
-        <div v-else>
-          <ListadoPage 
-          />
-        </div>
+  <div>
+    <NavBar :logueado="logueado" />
+  
+    <v-container>
+      <v-row class="text-center">
+        <v-col cols="12">
+          <h1 class="page-guia">Main Page</h1>
+          <UserTemplate v-if="!logueado" @change="checkLogueado" />
+          <div v-else>
+            <ListadoTemplate 
+            />
+          </div>
 
-      </v-col>
+        </v-col>
 
-    </v-row>
-  </v-container>
+      </v-row>
+    </v-container>
+  </div>
 </template>
 
 <script>
 
   // Components
-  import UserPage from './../templates/UserPage';
-  import ListadoPage from './ListadoPage';
+  import UserTemplate from './../templates/UserTemplate';
+  import ListadoTemplate from './../templates/ListadoTemplate';
+  import NavBar from './../organisms/NavBar.vue';
 
   export default {
     name: 'MainPage',
     components: {
-      UserPage,
-      ListadoPage,
+      NavBar,
+      UserTemplate,
+      ListadoTemplate,
     },
 
     data: () => ({
@@ -33,14 +39,26 @@
         id: '',
         name: ''
       },
-      registered: true
+      logueado: false
     }),
 
     methods: {
-      submit(estado) {
-        this.registered = estado
-      }
+      
+      checkLogueado() {
+        if(JSON.parse(localStorage.getItem('user'))) {
+          this.logueado = true
+        } else {
+          this.logueado = false
+        }
+      },
+
     },
+
+    mounted() {
+      this.$nextTick(function () {
+          this.checkLogueado()
+      })
+    }   
   }
 </script>
 
@@ -54,5 +72,5 @@
   .page-guia {
     /*display: none;*/
   }
-  
+
 </style>

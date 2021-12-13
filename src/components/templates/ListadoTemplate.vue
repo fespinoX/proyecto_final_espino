@@ -23,7 +23,7 @@
   // mockapi URL : https://61b145c33c954f001722a877.mockapi.io/
 
   export default {
-    name: 'ListadoPage',
+    name: 'ListadoTemplate',
     components: {
       ListaProductos, 
     },

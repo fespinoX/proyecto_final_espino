@@ -176,15 +176,6 @@
     }    
   }
 
-/* 
-
-TODO:
-
-* DELETE: Agregar confirm dialog
-* PUT: Agregar alerta de confirmación
-
-*/
-
 </script>
 
 <style lang="scss" scoped>
