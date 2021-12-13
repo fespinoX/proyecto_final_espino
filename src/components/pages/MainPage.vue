@@ -18,7 +18,7 @@
 <script>
 
   // Components
-  import UserPage from './UserPage';
+  import UserPage from './../templates/UserPage';
   import ListadoPage from './ListadoPage';
 
   export default {
@@ -54,4 +54,5 @@
   .page-guia {
     /*display: none;*/
   }
+  
 </style>

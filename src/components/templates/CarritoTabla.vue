@@ -22,7 +22,31 @@
               ></v-img>
             </td>
             <td class="text-left">{{ item.name }}</td>
-            <td class="text-left">{{ item.qty }}</td>
+            <td class="text-left">
+              <v-form class="qtyform" v-model="valid">
+                <v-text-field
+                  v-model="item.qty"
+                  label="Cantidad"
+                  required
+                  type="number"
+                  min="1"
+                  :rules="numberRules"
+                ></v-text-field>
+                <v-btn 
+                  color="green"
+                  class="qtyform-btn"
+                  dark
+                  small
+                  @click="editarItemCarrito(item)"
+                >
+                  <v-icon
+                    small
+                  >
+                    mdi-check-outline
+                  </v-icon>
+                </v-btn>
+              </v-form>
+            </td>
             <td class="text-left">{{ item.price }}</td>
             <td class="text-left">
               {{ calcularTotal(item.qty, item.price) }}
@@ -32,6 +56,7 @@
                 @click="borrarItemCarrito(item.id)"
                 color="red"
                 small
+                dark
               >
                 <v-icon
                   small
@@ -45,6 +70,13 @@
       </template>
     </v-data-table>
 
+    <v-btn 
+      color="red"
+      dark
+      @click="vaciarCarrito()"
+    >
+      Vaciar Carrito
+    </v-btn>
   </div>
 </template>
 
@@ -59,6 +91,7 @@
     props: {
     },
     data: () => ({
+      valid: false,
       tablaHeader: [
         {
           text: "Imagen",
@@ -87,6 +120,11 @@
       carrito: [],
       imgURL: '/assets/img/',
       imgExt: '.jpg',
+      numberRules: [
+        v => !!v || 'Por favor complete este campo',
+        v => v > 0 || 'Este campo debe ser mayor a 0',
+      ],
+      nuevocarrito: '',
     }),
 
     methods: {
@@ -101,23 +139,55 @@
         return qty * price
       },
 
+      hayCarrito(nuevocarrito) {
+        if (nuevocarrito.length > 0) {
+          console.log("hay carrito")
+          return true
+        }
+      },
+
       borrarItemCarrito(id) {
-        
-        let nuevocarrito = this.carrito.filter(function( obj ) {
-          return obj.id !== id;
-        });
-        
-        localStorage.setItem('carrito', JSON.stringify(nuevocarrito))
 
-        console.log("se borro del carrito")
-
+        this.makeNuevoCarrito(id)
+        
         this.setCarrito()
+
+        if (!this.hayCarrito(this.nuevocarrito)) {
+          // console.log("el carrito está vacío")
+          localStorage.removeItem('carrito');
+        }
+        
+        this.$emit("click", this.carrito);
 
       },
 
-      editarItemCarrito() {
+      editarItemCarrito(item) {
+        let carrito = []
+        this.makeNuevoCarrito(item.id)
+        let itemeditado = {
+          id: item.id,
+          qty: item.qty,
+          name: item.name,
+          price: item.price,
+          img: item.img
+        }
+        carrito = JSON.parse(localStorage.getItem('carrito'))
+        carrito.push(itemeditado);
+        localStorage.setItem('carrito', JSON.stringify(carrito))
+      },
 
-      },      
+      vaciarCarrito() {
+        localStorage.removeItem('carrito');
+        this.$emit("click", this.carrito);
+        
+      },
+
+      makeNuevoCarrito(id) {
+        this.nuevocarrito = this.carrito.filter(function( obj ) {
+          return obj.id !== id;
+        });
+        localStorage.setItem('carrito', JSON.stringify(this.nuevocarrito))
+      }
 
     },
 
@@ -136,6 +206,18 @@
 
 <style lang="scss" scoped>
 
+  .qtyform {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    .qtyform-btn {
+      margin-left: 5px;
+    }
+  }
 
 </style>
 

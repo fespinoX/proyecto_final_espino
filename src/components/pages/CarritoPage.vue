@@ -9,7 +9,14 @@
     <v-row>
       <v-col>
         <CarritoTabla
+          v-if="mostrarCarrito"
+          @click="borrarItemCarrito"
         />
+        <div
+          v-else
+        >
+          <p>El carrito está vacío</p>
+        </div>
       </v-col>
     </v-row>
   </v-container>
@@ -32,7 +39,32 @@
       },
     },
     data: () => ({
+      mostrarCarrito: false
     }),
+
+    methods: {
+      checkCarrito() {
+        // console.log("entro al metodo")
+        // console.log("carrito ls es:", localStorage.getItem('carrito'))
+        if(localStorage.getItem('carrito') && localStorage.getItem('carrito').length > 2 && localStorage.getItem('carrito') != null) {
+          //console.log("entro acaaa")
+          this.mostrarCarrito = true
+        } else {
+          this.mostrarCarrito = false
+        }
+      },
+      borrarItemCarrito (info) {
+        console.log("info es: ", info)
+        this.checkCarrito()
+      }
+    },
+
+    mounted() {
+      this.$nextTick(function () {
+        this.checkCarrito()
+      })
+    }
+
   }
 
 </script>

@@ -32,6 +32,7 @@
                 color="red"
                 v-else
                 small
+                dark
               >
                 Sin stock
               </v-chip>
@@ -45,6 +46,7 @@
                   @click="editarProducto(item.id)"
                   color="green"
                   small
+                  dark
                 >
                   <v-icon
                     small
@@ -56,6 +58,7 @@
                   @click="borrarProducto(item.id)"
                   color="red"
                   small
+                  dark
                 >
                   <v-icon
                     small

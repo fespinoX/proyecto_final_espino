@@ -50,6 +50,7 @@
                 <v-btn
                   @click="entregarPedido(item)"
                   color="green"
+                  dark
                   small
                   v-if="!item.entregado"
                 >
@@ -60,9 +61,10 @@
                   </v-icon>
                 </v-btn>
                 <v-btn
-                  @click="borrarPedido(item.id)"
                   color="red"
+                  dark
                   small
+                  @click="borrarPedido(item.id)"
                 >
                   <v-icon
                     small

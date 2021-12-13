@@ -96,18 +96,22 @@ ___
 * Carrito: Alerta cuando se agrega al carrito desde la producto card
 * Carrito: Alerta cuando se agrega al carrito y cerrar el dialog
 * Carrito: Que checkee si ya existe el item en el carrito, si existe agregar la cantidad al objeto correspondiente
-* Carrito: editar
+* Carrito: mensaje de ok cuando se edita
 * Carrito: confirm antes de borrar
 * Carrito: mensaje de ok cuando se borra
-* Carrito: boton de vaciar carrito
-* Carrito: mensaje si el carrito esta vacio
-* Una vez que se submitea la orden que se almacene en pedidos
+* Carrito: confirm antes de vaciar carrito
+* Carrito: calcular el total
+* Carrito: Completar compra
+* Carrito: Una vez que se submitea la orden que se almacene en pedidos
 
 
 ### User
 
 * users: POST
 * Autenticar pegándole al endpoint
+* Hardocdear el access
+* Dropdown con el Avatar para poner el logout
+* Agregar lógica para que muestre los links y el content en base al tipo de usuario
+
 * hashear contraseñas
 * introducir psw dos veces y comparar
-* Agregar lógica para que muestre los links y el content en base al tipo de usuario
