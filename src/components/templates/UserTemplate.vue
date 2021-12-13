@@ -32,12 +32,12 @@
     }),
 
     methods : {
-      submit(estado) {
-        this.logueado = estado
-        this.$emit('change', this.logueado);
-      },
-      showRegister() {
-        this.showLogin = false
+      showRegister(logueado) {
+        if(logueado) {
+          this.$emit('change', this.logueado);
+        } else {
+          this.showLogin = false
+        }
       },
       hideRegister() {
         this.showLogin = true

@@ -46,9 +46,12 @@ Las imágenes disponisbles son: "brass", "dinosaurisland", "thenetworks", "istan
 
 ## DB
 
-La información de users, productos y pedidos carrito está 'mockeada' usando mockapi.io.
+La información de users, productos y pedidos está 'mockeada' usando mockapi.io.
 
 Se puede encontrar los archivos de data iniciales en src/assets/data dentro del proyecto.
+
+El carrito se almacena en el localstorage
+
 
 ### Endpoint
 
@@ -58,11 +61,9 @@ ___
 
 ## Datos entrega
 
-Alumna: Florencia Espino
-
-Tutor: Diego Mafferra
-
-Trabajo: Segunda Entrega del Proyecto Final
+* Alumna: Florencia Espino
+* Tutor: Diego Mafferra
+* Trabajo: Segunda Entrega del Proyecto Final
 
 ___
 
@@ -114,8 +115,6 @@ ___
 #### Must
 * Hardocdear el access
 * Agregar lógica para que muestre los links y el content en base al tipo de usuario
-* Redireccionar una vez q se loguea
-* Redireccionar una vez q se desloguea
 
 #### Nice to have
 * hashear contraseñas

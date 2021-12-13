@@ -12,15 +12,16 @@
       <router-link to="/carrito">
         <v-icon>mdi-cart-variant</v-icon>
       </router-link>
-      <router-link to="/admin">Admin</router-link>
-    <v-menu class="d-flex align-center">
+    <v-menu
+      class="d-flex align-center"
+      v-if="logueado"
+    >
 
       <template v-slot:activator="{ on }">
         <v-btn
           icon
           x-large
           v-on="on"
-          v-if="logueado"
         >
           <v-avatar
             color="orange"
@@ -95,6 +96,7 @@ export default {
     },
     desloguarUser() {
       localStorage.removeItem('user');
+      this.$emit('change', this.logueado);
     }
   },
 

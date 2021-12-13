@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NavBar :logueado="logueado" />
+    <NavBar :logueado="logueado" @change="checkLogueado" />
   
     <v-container>
       <v-row class="text-center">

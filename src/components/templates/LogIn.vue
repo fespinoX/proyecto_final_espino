@@ -118,7 +118,7 @@
       },
 
       changeToRegister() {
-        this.$emit('click', true);
+        this.$emit('click', this.logueado);
       }
     },
 
