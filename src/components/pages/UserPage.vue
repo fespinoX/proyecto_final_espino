@@ -4,54 +4,69 @@
 
     <v-container>
       <v-row class="text-center">
+
         <v-col cols="12">
           <h1 class="page-guia">User Page</h1>
-        </v-col>
-      </v-row>
 
-      <v-row>
-        <v-col>
-          <UserTemplate v-if="!logueado" />
+          <div v-if="showLogin">
+            <LogIn />
+              <div class="mt-6">
+                <p>No tenés usuario?</p>
+                <v-btn
+                  @click="changeToRegister()"
+                >
+                  Registrarme
+                </v-btn>
+              </div>            
+          </div>
+
+          <div v-else>
+            <Registro />
+            <div class="mt-6">
+              <p>Ya tenés usuario?</p>
+              <v-btn
+                @click="changeToLogin()"
+              >
+                Loguearme
+              </v-btn>
+            </div>
+          </div>
         </v-col>
+
       </v-row>
     </v-container>
-
-  </div>    
+  </div>
 </template>
 
 <script>
 
   //Components
   import NavBar from './../organisms/NavBar.vue'
-  import UserTemplate from './../templates/UserTemplate'
-
+  import Registro from './../templates/Registro.vue'
+  import LogIn from './../templates/LogIn.vue'
 
   export default {
+    name: 'UserTemplate',
     components: {
       NavBar,
-      UserTemplate,
+      Registro,
+      LogIn
+ 
     },
-    name: 'UserPage',
+
     data: () => ({
-      logueado: false
+      logueado: false,
+      showLogin: true
+      
     }),
 
-    methods: {
-      checkLogueado() {
-        if(JSON.parse(localStorage.getItem('user'))) {
-          this.logueado = true
-          this.$router.push('/');
-        } else {
-          this.logueado = false
-        }
+    methods : {
+      changeToRegister() {
+        this.showLogin = false
       },
+      changeToLogin() {
+        this.showLogin = true
+      }
     },
-    mounted() {
-      this.$nextTick(function () {
-        this.checkLogueado()
-      })
-    }
-
   }
-
 </script>

@@ -76,6 +76,11 @@ ___
 ### General
 
 * Agregar mixins para los métodos que se repiten
+* Style
+
+#### Must entrega
+
+* Validaciones formularios
 
 
 ### Admin

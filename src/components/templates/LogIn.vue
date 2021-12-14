@@ -2,17 +2,21 @@
   <div>
     <h1 class="page-guia">Login</h1>    
 
-    <v-form v-model="valid">
+    <v-form 
+      ref="form"
+      v-model="valid"
+      lazy-validation
+    >
       <v-container>
         <v-row>
           <v-col
             cols="12"
-            md="4"
+            md="6"
+            offset-md="3"
           >
             <v-text-field
               v-model="username"
               :rules="userRules"
-              :counter="10"
               label="User name"
               required
             ></v-text-field>
@@ -20,12 +24,12 @@
 
           <v-col
             cols="12"
-            md="4"
+            md="6"
+            offset-md="3"
           >
             <v-text-field
               v-model="password"
               :rules="pswRules"
-              :counter="10"
               label="Password"
               required
               type="password"
@@ -42,21 +46,6 @@
         Entrar
       </v-btn>
     </v-form>
-    <v-row>
-      <v-col
-        cols="12"
-        md="4"
-      >
-        <div class="mt-6">
-          <p>No tenés usuario?</p>
-          <v-btn
-            @click="changeToRegister()"
-          >
-            Registrarme
-        </v-btn>
-        </div>
-      </v-col>
-    </v-row>
   </div>
 </template>
 
@@ -67,7 +56,7 @@
     name: 'Registro',
 
     data: () => ({
-      valid: false,
+      valid: true,
       username: '',
       password: '',
       allusers: [],
@@ -84,7 +73,8 @@
 
       loguearUser() {
         this.levantarUsers()
-        if (this.valid) {
+        
+        if (this.$refs.form.validate()) {
           
           const usuario = this.allusers.find(o => o.user === this.username);
           if (usuario) {
@@ -100,8 +90,8 @@
             console.log("usuario o contraseña incorrecta")
           }
 
-          this.$emit('click', this.logueado);
-
+        } else {
+          console.log("error de validacion")
         }
       },
 
@@ -117,10 +107,6 @@
           })
           .catch((err) => {console.error(`${err}`)})
       },
-
-      changeToRegister() {
-        this.$emit('click', this.logueado);
-      }
     },
 
     mounted() {

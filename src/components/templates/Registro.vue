@@ -2,17 +2,21 @@
   <div>
     <h1 class="page-guia">Registro</h1>    
 
-    <v-form v-model="valid">
+    <v-form 
+      ref="form"
+      v-model="valid"
+      lazy-validation
+    >
       <v-container>
         <v-row>
           <v-col
             cols="12"
-            md="4"
+            md="6"
+            offset-md="3"
           >
             <v-text-field
               v-model="firstname"
               :rules="nameRules"
-              :counter="10"
               label="Nombre"
               required
             ></v-text-field>
@@ -20,12 +24,12 @@
 
           <v-col
             cols="12"
-            md="4"
+            md="6"
+            offset-md="3"
           >
             <v-text-field
               v-model="lastname"
               :rules="nameRules"
-              :counter="10"
               label="Apellido"
               required
             ></v-text-field>
@@ -33,7 +37,8 @@
 
           <v-col
             cols="12"
-            md="4"
+            md="6"
+            offset-md="3"
           >
             <v-text-field
               v-model="email"
@@ -45,12 +50,12 @@
 
           <v-col
             cols="12"
-            md="4"
+            md="6"
+            offset-md="3"
           >
             <v-text-field
               v-model="user"
               :rules="nameRules"
-              :counter="10"
               label="Nombre de usuario"
               required
             ></v-text-field>
@@ -58,12 +63,12 @@
 
           <v-col
             cols="12"
-            md="4"
+            md="6"
+            offset-md="3"
           >
             <v-text-field
               v-model="password"
               :rules="nameRules"
-              :counter="10"
               label="Password"
               required
               type="password"
@@ -72,7 +77,8 @@
 
           <v-col
             cols="12"
-            md="4"
+            md="6"
+            offset-md="3"
           >
             <v-text-field
               v-model="avatar"
@@ -93,15 +99,6 @@
         Registrarme
       </v-btn>
     </v-form>
-
-    <div class="mt-6">
-      <p>Ya tenés usuario?</p>
-      <v-btn
-        @click="changeToLogin()"
-      >
-        Loguearme
-      </v-btn>
-    </div>
   </div>
 </template>
 
@@ -112,7 +109,7 @@
     name: 'Registro',
 
     data: () => ({
-      valid: false,
+      valid: true,
       firstname: '',
       lastname: '',
       user: '',
@@ -133,7 +130,7 @@
     }),
     methods: {
       submit() {
-        if (this.valid) {
+        if (this.$refs.form.validate()) {
           if (!this.checkIfUserExists()) {
             this.newuser = {
               firstName: this.firstname,
@@ -151,6 +148,8 @@
           } else {
             console.log("el usuario ya existe")
           }
+        } else {
+          console.log("no valida")
         }
       },
       agregarUser() {
@@ -163,6 +162,7 @@
           )
           .then((data) => {
             console.log("El usuario agregado es:", data);
+            this.$router.push('/');
           })
           .catch((err) => {console.error(`${err}`)})
       },
@@ -181,13 +181,9 @@
           .then(response => (this.info = response))
           .then(data => {
           this.allusers = data.data
-          this.$router.push('/');
           })
           .catch((err) => {console.error(`${err}`)})
       },
-      changeToLogin() {
-        this.$emit('click', true);
-      }
     },
 
     mounted() {
