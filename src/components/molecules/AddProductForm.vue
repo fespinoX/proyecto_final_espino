@@ -12,21 +12,9 @@
           <v-col
             cols="12"
           >
-            <!-- <v-file-input
-              v-model="img"
-              accept="image/png, image/jpeg"
-              label="Imagen"
-              prepend-icon="mdi-camera"
-            ></v-file-input> -->
-          </v-col>
-
-          <v-col
-            cols="12"
-          >
             <v-text-field
               v-model="name"
               :rules="nameRules"
-              :counter="10"
               label="Producto"
               required
             ></v-text-field>
@@ -38,7 +26,6 @@
             <v-text-field
               v-model="desc"
               :rules="nameRules"
-              :counter="10"
               label="Descripción"
               required
             ></v-text-field>
@@ -50,7 +37,6 @@
             <v-text-field
               v-model="img"
               :rules="nameRules"
-              :counter="10"
               label="Nombre de la imagen"
               required
             ></v-text-field>
@@ -62,7 +48,6 @@
             <v-text-field
               v-model="qty"
               :rules="numberRules"
-              :counter="10"
               label="Cantidad"
               required
               type="number"
@@ -75,7 +60,6 @@
             <v-text-field
               v-model="price"
               :rules="numberRules"
-              :counter="10"
               label="Precio"
               required
               type="number"
