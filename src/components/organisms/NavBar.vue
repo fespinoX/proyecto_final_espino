@@ -5,13 +5,31 @@
     dark
   >
     <div class="d-flex align-center">
-      <router-link to="/">LOGO</router-link>
+      <router-link to="/">HOME</router-link>
     </div>
 
     <v-spacer></v-spacer>
-      <router-link to="/carrito">
-        <v-icon>mdi-cart-variant</v-icon>
-      </router-link>
+    <router-link to="/carrito">
+      <v-icon>mdi-cart-variant</v-icon>
+    </router-link>
+    
+    <v-btn
+      depressed
+      @click="desloguarUser"
+      class="ml-4"
+      v-if="logueado"
+    >
+      Logout
+    </v-btn>    
+    <v-btn
+      depressed
+      @click="irAlLogin"
+      class="ml-4"
+      v-else
+    >
+      Login
+    </v-btn>
+    <!-- TODO: esto lo comento hasta que manejemos los usuarios von Vuex
     <v-menu
       class="d-flex align-center"
       v-if="logueado"
@@ -64,7 +82,7 @@
         </v-list-item-content>
       </v-card>
     </v-menu>
-
+    -->
   </v-app-bar>
 </template>
 
@@ -78,15 +96,10 @@ export default {
   },
 
   props: {
-    logueado: Boolean
   },
 
   data: () => ({
-    user: {
-      initials: 'JD',
-      fullName: 'John Doe',
-      email: 'john.doe@doe.com',
-    },
+    logueado: false,
     usuarioLocal: {}
   }),
   methods: {
@@ -94,15 +107,27 @@ export default {
       this.usuarioLocal = JSON.parse(localStorage.getItem('user'))
       console.log("this.usuarioLocal es", this.usuarioLocal)
     },
+    checkLogueado() {
+      if (this.usuarioLocal) {
+        this.logueado = true
+      } else {
+        this.logueado = false
+      }
+    },
+    irAlLogin() {
+      this.$router.push('/carrito'); 
+    },
     desloguarUser() {
+      localStorage.removeItem('carrito');
       localStorage.removeItem('user');
-      this.$emit('change', this.logueado);
+      this.$router.push('/user');
     }
   },
 
   mounted() {
   this.$nextTick(function () {
       this.getUser()
+      this.checkLogueado()
   })
 }   
  

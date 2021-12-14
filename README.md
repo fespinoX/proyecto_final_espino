@@ -37,6 +37,10 @@ https://www.uifrommars.com/atomic-design-ventajas/
 ## Github
 https://github.com/fespinoX/proyecto_final_espino
 
+## Live Version
+
+https://proyecto-final-espino-fd26z.ondigitalocean.app/
+
 
 ## Agregar productos con imagen
 Se agregaron imágenes a la carpeta public/assets/img para probar agregar productos con foto.
@@ -68,6 +72,11 @@ ___
 ___
 
 ## Pendientes TODO:
+
+### General
+
+* Agregar mixins para los métodos que se repiten
+
 
 ### Admin
 
@@ -107,7 +116,7 @@ ___
 * Carrito: confirm antes de mandar pedido
 * Carrito: mensaje de ok cuando se manda el pedido
 
-* Limitar cantidad de producto que se puede agregar al stock
+* Limitar cantidad de producto que se puede agregar al carrito en base al stock
 
 #### Nice to have
 
@@ -115,7 +124,6 @@ ___
 ### User
 
 #### Must
-* Hardocdear el access
 * Agregar lógica para que muestre los links y el content en base al tipo de usuario
 
 #### Nice to have

@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import MainPage from '../components/pages/MainPage.vue'
 import CarritoPage from '../components/pages/CarritoPage.vue'
 import AdminPage from '../components/pages/AdminPage.vue'
+import UserPage from '../components/pages/UserPage.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/admin',
     name: 'AdminPage',
     component: AdminPage
+  },
+  {
+    path: '/user',
+    name: 'UserPage',
+    component: UserPage
   },
 ]
 

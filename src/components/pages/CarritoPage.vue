@@ -1,35 +1,43 @@
 <template>
-  <v-container>
-    <v-row class="text-center">
-      <v-col cols="12">
-        <h1 class="page-guia">Carrito Page</h1>
-        <h2>Mi Carrito</h2>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <CarritoTabla
-          v-if="mostrarCarrito"
-          @click="borrarItemCarrito"
-        />
-        <div
-          v-else
-        >
-          <p>El carrito está vacío</p>
-        </div>
-      </v-col>
-    </v-row>
-  </v-container>
+  <div>
+    <NavBar />
+
+    <v-container>
+      <v-row class="text-center">
+        <v-col cols="12">
+          <h1 class="page-guia">Carrito Page</h1>
+          <h2>Mi Carrito</h2>
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col>
+          <CarritoTabla
+            v-if="mostrarCarrito"
+            @click="borrarItemCarrito"
+          />
+          <div
+            v-else
+          >
+            <p>El carrito está vacío</p>
+          </div>
+        </v-col>
+      </v-row>
+    </v-container>
+
+  </div>    
 </template>
 
 <script>
 
   //Components
+  import NavBar from './../organisms/NavBar.vue'
   import CarritoTabla from '../templates/CarritoTabla.vue'
 
 
   export default {
-    components: { 
+    components: {
+      NavBar,
       CarritoTabla 
     },
     name: 'CarritoPage',
@@ -39,10 +47,19 @@
       },
     },
     data: () => ({
-      mostrarCarrito: false
+      mostrarCarrito: false,
+      logueado: false
     }),
 
     methods: {
+      checkLogueado() {
+        if(JSON.parse(localStorage.getItem('user'))) {
+          this.logueado = true
+        } else {
+          this.logueado = false
+          this.$router.push('/User');
+        }
+      },
       checkCarrito() {
         // console.log("entro al metodo")
         // console.log("carrito ls es:", localStorage.getItem('carrito'))
@@ -61,6 +78,7 @@
 
     mounted() {
       this.$nextTick(function () {
+        this.checkLogueado()
         this.checkCarrito()
       })
     }

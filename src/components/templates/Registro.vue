@@ -181,6 +181,7 @@
           .then(response => (this.info = response))
           .then(data => {
           this.allusers = data.data
+          this.$router.push('/');
           })
           .catch((err) => {console.error(`${err}`)})
       },

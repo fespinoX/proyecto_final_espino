@@ -223,6 +223,7 @@
           .catch((err) => {console.error(`${err}`)})
 
         this.vaciarCarrito()
+        this.$router.push('/');
       },
 
       agregarItemsAlPedido() {
