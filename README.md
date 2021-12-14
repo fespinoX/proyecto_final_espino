@@ -37,9 +37,29 @@ https://www.uifrommars.com/atomic-design-ventajas/
 ## Github
 https://github.com/fespinoX/proyecto_final_espino
 
+
 ## Live Version
 
 https://proyecto-final-espino-fd26z.ondigitalocean.app/
+
+
+## Vistas
+
+/ Home
+/admin Panel de administrador
+
+
+## Users para probar
+
+### Admin
+
+"user": "fespinox",
+"password": "Fespi123",
+
+### Client
+
+"user": "trixi3",
+"password": "Trixie123",
 
 
 ## Agregar productos con imagen
@@ -76,7 +96,7 @@ ___
 ### General
 
 * Agregar mixins para los métodos que se repiten
-* Style
+* Mejorar style
 
 
 ### Admin
@@ -93,6 +113,9 @@ ___
 
 * Editar Pedido: Confirm antes de editar
 * Borrar Pedido: Confirm antes de borrar
+
+* Mensaje si no hay productos
+* Mensaje si no hay pedidos
 
 #### Nice to have
 

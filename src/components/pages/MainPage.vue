@@ -6,7 +6,7 @@
       <v-row class="text-center">
         <v-col cols="12">
           <h1 class="page-guia">Main Page</h1>
-            <ListadoTemplate />
+            <ListaProductos />
         </v-col>
       </v-row>
     </v-container>
@@ -16,14 +16,14 @@
 <script>
 
   // Components
-  import ListadoTemplate from './../templates/ListadoTemplate';
+  import ListaProductos from './../templates/ListaProductos';
   import NavBar from './../organisms/NavBar.vue';
 
   export default {
     name: 'MainPage',
     components: {
       NavBar,
-      ListadoTemplate,
+      ListaProductos,
     },
 
     data: () => ({

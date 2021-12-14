@@ -30,9 +30,9 @@
 
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
   
-  a
-    color: white!important
+  .v-btn
+    color: black!important
 
 </style>

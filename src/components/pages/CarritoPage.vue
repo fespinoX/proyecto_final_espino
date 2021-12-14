@@ -19,7 +19,13 @@
           <div
             v-else
           >
-            <p>El carrito está vacío</p>
+            <p>Tu carrito está vacío, agregá productos a tu carrito para poder hacer un pedido</p>
+            <v-btn
+              color="accent"
+              @click="irAhome"
+            >
+              Ver productos
+            </v-btn>
           </div>
         </v-col>
       </v-row>
@@ -73,6 +79,9 @@
       borrarItemCarrito (info) {
         console.log("info es: ", info)
         this.checkCarrito()
+      },
+      irAhome() {
+        this.$router.push('/');
       }
     },
 

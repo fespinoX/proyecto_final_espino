@@ -76,22 +76,22 @@
     <v-row>
       <v-col>
         <v-btn 
-          color="red"
+          color="secondary"
           dark
-          @click="vaciarCarrito()"
+          @click="realizarPedido()"
         >
-      Vaciar Carrito
-    </v-btn>
+          Realizar Pedido
+        </v-btn>
       </v-col>
     </v-row>
     <v-row>
       <v-col>
         <v-btn 
-          color="green"
+          color="red"
           dark
-          @click="realizarPedido()"
+          @click="vaciarCarrito()"
         >
-          Realizar Pedido
+          Vaciar Carrito
         </v-btn>
       </v-col>
     </v-row>    

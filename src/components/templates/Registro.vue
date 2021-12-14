@@ -92,8 +92,7 @@
         </v-row>
       </v-container>
       <v-btn
-        color="green"
-        dark
+        color="secondary"
         @click="submit"
       >
         Registrarme

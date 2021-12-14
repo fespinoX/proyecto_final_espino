@@ -2,15 +2,25 @@
   <v-dialog v-model="open" @click:outside="$emit('manejarVentana', false)">
     <v-card>
       <v-card-title>
-        <h1>{{ productoSeleccionado.nombre }}</h1>
-        <p>{{ productoSeleccionado.img }}</p>
+        <v-img
+          v-if="productoSeleccionado.img"
+          height="300"
+          :src="imgURL + productoSeleccionado.img + imgExt"
+        ></v-img>
+        <v-img
+          v-else
+          height="300"
+          :src="imgURL + 'default' + imgExt"
+        ></v-img>
       </v-card-title>
       <v-card-text>
         <v-form v-model="valid">
-          <p>{{ productoSeleccionado.desc }}</p>
+          <h2 class="mt-4">{{ productoSeleccionado.name }}</h2>
+          <p class="mt-2">{{ productoSeleccionado.desc }}</p>
           <p>Precio: ${{productoSeleccionado.price}}</p>
           <p>Cantidad disponible: {{productoSeleccionado.qty}}</p>
           <v-text-field
+            class="my-4"
             v-model="carritoQty"
             label="Cantidad"
             required
@@ -35,6 +45,8 @@ export default {
   data: () => ({
     valid: false,
     carritoQty: 1,
+    imgURL: '/assets/img/',
+    imgExt: '.jpg',
     productoAgregado: {
       id: '',
       qty: '',
@@ -76,5 +88,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped></style>

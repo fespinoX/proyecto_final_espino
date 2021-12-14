@@ -11,15 +11,23 @@
         height="250"
         :src="imgURL + 'default' + imgExt"
       ></v-img>
-      <v-card-title>
-        {{ product.name }}
+      <v-card-title
+        class="card-title"
+      >
+        <h3 class="text-center">{{ product.name }}</h3>
       </v-card-title>
       <v-card-text>
-        <p>${{ product.price }}</p>
+        <p class="price">${{ product.price }}</p>
+
         <div v-if="product.qty > 0">
-          <v-btn color="red" dark @click="verDetalle(product)">Ver mas</v-btn>
-          <v-btn color="green" dark @click="agregarAlCarrito(product)">Agregar al carrito</v-btn>
+          <div>
+            <v-btn color="primary" @click="verDetalle(product)">Ver mas</v-btn>
+          </div>
+          <div class="mt-2">
+            <v-btn color="secondary" dark @click="agregarAlCarrito(product)">Agregar al carrito</v-btn>
+          </div>
         </div>
+
         <v-chip 
           color="red"
           v-else
@@ -97,8 +105,12 @@
     },
   }
 
-
-// src="./../../assets/img/default.jpg"
-// src="@/assets/img/default.jpg"
-
 </script>
+
+<style lang="sass" scoped>
+
+  .card-title
+    display: block
+
+
+</style>

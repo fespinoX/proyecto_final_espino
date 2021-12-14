@@ -13,6 +13,7 @@
               <div class="mt-6">
                 <p>No tenés usuario?</p>
                 <v-btn
+                  color="accent"
                   @click="changeToRegister()"
                 >
                   Registrarme
@@ -25,6 +26,7 @@
             <div class="mt-6">
               <p>Ya tenés usuario?</p>
               <v-btn
+                color="accent"
                 @click="changeToLogin()"
               >
                 Loguearme
@@ -46,12 +48,11 @@
   import LogIn from './../templates/LogIn.vue'
 
   export default {
-    name: 'UserTemplate',
+    name: 'UserPage',
     components: {
       NavBar,
       Registro,
-      LogIn
- 
+      LogIn, 
     },
 
     data: () => ({
@@ -61,6 +62,14 @@
     }),
 
     methods : {
+      checkLogueado() {
+        if(JSON.parse(localStorage.getItem('user'))) {
+          this.logueado = true
+          this.$router.push('/');
+        } else {
+          this.logueado = false
+        }
+      },
       changeToRegister() {
         this.showLogin = false
       },
@@ -68,5 +77,10 @@
         this.showLogin = true
       }
     },
+    mounted() {
+      this.$nextTick(function () {
+        this.checkLogueado()
+      })
+    }
   }
 </script>

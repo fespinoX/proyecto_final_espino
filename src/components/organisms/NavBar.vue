@@ -5,7 +5,9 @@
     dark
   >
     <div class="d-flex align-center">
-      <router-link to="/">HOME</router-link>
+      <router-link to="/">
+        <v-icon>mdi-home-variant-outline</v-icon>
+      </router-link>
     </div>
 
     <v-spacer></v-spacer>
@@ -14,7 +16,7 @@
     </router-link>
     
     <v-btn
-      depressed
+      color="accent"
       @click="desloguarUser"
       class="ml-4"
       v-if="logueado"
@@ -22,7 +24,7 @@
       Logout
     </v-btn>    
     <v-btn
-      depressed
+      color="accent"
       @click="irAlLogin"
       class="ml-4"
       v-else

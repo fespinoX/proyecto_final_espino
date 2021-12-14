@@ -40,8 +40,7 @@
       </v-container>
       <v-btn
         @click="loguearUser()"
-        color="green"
-        dark
+        color="secondary"
       >
         Entrar
       </v-btn>
