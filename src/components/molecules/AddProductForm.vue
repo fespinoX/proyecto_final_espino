@@ -1,7 +1,11 @@
 <template>
   <div>
     <h2 class="mt-4">Agregar un producto nuevo</h2>
-    <v-form v-model="valid">
+    <v-form 
+      ref="form"
+      v-model="valid"
+      lazy-validation
+    >
       <v-container>
         <v-row>
 
@@ -98,7 +102,7 @@
     components: {
     },
     data: () => ({
-      valid: false,
+      valid: true,
       name: '',
       desc: '',
       qty: '',
@@ -119,7 +123,7 @@
     },
     methods: {
       submit() {
-        if (this.valid) {
+        if (this.$refs.form.validate()) {
           this.newproduct = {
             "name": this.name,
             "qty": this.qty,
