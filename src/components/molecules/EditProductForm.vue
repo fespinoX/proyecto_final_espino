@@ -69,6 +69,7 @@
       <v-btn
         class="mr-4"
         @click="submit"
+        color="primary"
       >
         Editar
       </v-btn>

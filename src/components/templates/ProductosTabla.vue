@@ -73,8 +73,19 @@
       </template>
     </v-data-table>
 
-    <EditProductForm v-if="productid !=''" :productid="productid" @submit="editadoNotification"/>
-    <v-btn class="my-4" @click="mostrarAdd" v-if="!mostraradd">Agregar producto</v-btn>
+    <EditProductForm 
+      v-if="productid !=''"
+      :productid="productid"
+      @submit="editadoNotification"
+    />
+    <v-btn
+      class="my-4"
+      color="secondary"
+      @click="mostrarAdd"
+      v-if="!mostraradd"
+    >
+      Agregar producto
+    </v-btn>
     <AddProductForm v-if="mostraradd" />
 
   </div>
