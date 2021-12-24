@@ -24,11 +24,13 @@
 </template>
 
 <script>
-  import axios from "axios"
+  // import axios from "axios"
 
   // Components
   import ProductoCard from './../molecules/ProductoCard.vue';
-
+  
+  // Vuex
+  import { mapState } from "vuex"
 
   export default {
     name: 'ListaProductos',
@@ -36,26 +38,23 @@
       ProductoCard, 
     },
     data: () => ({
-      productos: []
+
     }),
     props: {
-    },
-    methods: {
-      levantarProductos() {
-        axios
-          .get('https://61b145c33c954f001722a877.mockapi.io/productos')
-          .then(response => (this.info = response))
-          .then(data => {
-            this.productos = data.data
-          })
-          .catch((err) => {console.error(`${err}`)})
+      content: {
+        type: Array
       }
     },
-    mounted() {
-      this.$nextTick(function () {
-        this.levantarProductos()
-      })
-    }
+    methods: {
+
+    },
+    computed : {
+      ...mapState({
+        productos: state => state.productos,
+        loadingProductos: state => state.loadingProductos,
+      }),
+
+    },
   }
 
 </script>

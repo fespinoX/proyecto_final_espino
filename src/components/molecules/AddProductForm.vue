@@ -79,7 +79,7 @@
 </template>
 
 <script>
-  import axios from "axios"
+  // import axios from "axios"
 
   export default {
     name: 'AddProductForm',
@@ -122,17 +122,7 @@
         }
       },
       agregarProducto() {
-        axios
-          .post(
-            `https://61b145c33c954f001722a877.mockapi.io/productos`,
-            this.newproduct
-
-          )
-          .then((data) => {
-            console.log("Agregado el producto:", this.name);
-            console.log("Data es:", data);
-          })
-          .catch((err) => {console.error(`${err}`)})
+        this.$store.dispatch("agregarProducto", this.newproduct)
       },
 
     },

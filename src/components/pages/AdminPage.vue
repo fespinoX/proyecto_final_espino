@@ -130,6 +130,7 @@
       },
     },
     mounted() {
+      
       this.$nextTick(function () {
         this.checkLogueado()
         this.checkAdmin()

@@ -93,7 +93,10 @@
 
 <script>
 
-  import axios from "axios"
+  // import axios from "axios"
+
+  // Vuex
+  import { mapState } from "vuex"
 
   // Components
   import EditProductForm from '../molecules/EditProductForm';
@@ -106,6 +109,9 @@
       AddProductForm
     },
     props: {
+      content: {
+        type: Array
+      }
     },
     data: () => ({
       tablaHeader: [
@@ -129,7 +135,6 @@
           text: "Acciones"
         }
       ],
-      productos: [],
       productid: '',
       mostraradd: false,
       imgURL: '/assets/img/',
@@ -137,16 +142,6 @@
     }),
 
     methods: {
-      levantarProductos() {
-      axios
-        .get('https://61b145c33c954f001722a877.mockapi.io/productos')
-        .then(response => (this.info = response))
-        .then(data => {
-        this.productos = data.data
-        console.log("productos levantados de la DB")
-        })
-        .catch((err) => {console.error(`${err}`)})
-      },
 
       editarProducto(id) {
         this.productid = id
@@ -155,23 +150,13 @@
       },
 
       borrarProducto(id) {
-
-        axios
-          .delete(
-            `https://61b145c33c954f001722a877.mockapi.io/productos/${id}`
-          )
-          .then((data) => {
-            console.log("Borrar producto:", data.data.name);
-            this.levantarProductos()
-          })
-          .catch((err) => {console.error(`${err}`)})
-
+        this.$store.dispatch("borrarProducto", id)
       },
 
       editadoNotification(editadoname) {
         console.log("se edito re bien: ", editadoname)
         this.productid = ''
-        this.levantarProductos()
+        // this.levantarProductos()
       },
 
       mostrarAdd() {
@@ -179,12 +164,12 @@
       },
 
     },
-    
-    mounted() {
-      this.$nextTick(function () {
-          this.levantarProductos()
-      })
-    }    
+    computed : {
+      ...mapState({
+        productos: state => state.productos,
+      }),
+
+    },
   }
 
 </script>

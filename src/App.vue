@@ -25,6 +25,11 @@
     methods: {
 
     },
+
+    mounted() {
+      this.$store.dispatch("levantarProductos")
+      this.$store.dispatch("levantarPedidos")
+    }
   
   };
 

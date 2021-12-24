@@ -97,6 +97,7 @@ ___
 
 * Agregar mixins para los métodos que se repiten
 * Mejorar style
+* Comentar console logs
 
 
 ### Admin
@@ -107,6 +108,7 @@ ___
 * Agregar Producto: Validación al hacer click en agregar
 * Agregar Producto: Confirm antes de agregar
 * Agregar Producto: Limpiar y ocultar formulario
+* Agregar Producto: Mensaje de que se agrego
 * Editar Producto: Botón de cancelar
 * Editar Producto: Confirm antes de editar
 * Borrar Producto: Confirm antes de borrar

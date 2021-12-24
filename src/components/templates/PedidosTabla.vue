@@ -87,7 +87,8 @@
 
   import axios from "axios"
 
-  // Components
+  // Vuex
+  import { mapState } from "vuex"
 
 
   export default {
@@ -122,7 +123,6 @@
           text: "Acciones"
         },      
       ],
-      pedidos: [],
       editpedido: {
         userid: '',
         productos: [],
@@ -134,17 +134,6 @@
     }),
 
     methods: {
-      levantarPedidos() {
-      axios
-        .get('https://61b145c33c954f001722a877.mockapi.io/pedidos')
-        .then(response => (this.info = response))
-        .then(data => {
-        this.pedidos = data.data
-        console.log("PEDIDOS levantados de la DB")
-        })
-        .catch((err) => {console.error(`${err}`)})
-      },
-
       borrarPedido(id) {
 
         axios
@@ -181,11 +170,11 @@
       }
     },
     
-    mounted() {
-      this.$nextTick(function () {
-          this.levantarPedidos()
-      })
-    }    
+    computed : {
+      ...mapState({
+        pedidos: state => state.pedidos,
+      }),
+    }
   }
 
 /* 
