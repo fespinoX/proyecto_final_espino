@@ -31,6 +31,8 @@ export default new Vuex.Store({
     // Borrar
     BORRAR_PRODUCTO() {
     },
+    BORRAR_PEDIDO() {
+    },    
 
     // Load
     LOADING_PRODUCTOS(state, payload) {
@@ -102,7 +104,19 @@ export default new Vuex.Store({
         })
         .catch((err) => {console.error(`${err}`)})
 
-    }
+    },
+
+    borrarPedido(context, payload) {
+      axios
+      .delete(
+        `https://61b145c33c954f001722a877.mockapi.io/pedidos/${payload}`
+      )
+      .then((data) => {
+        console.log("Borrar pedido:", data.data.id);
+      })
+      .catch((err) => {console.error(`${err}`)})
+    },
+
   },
   modules: {
   }

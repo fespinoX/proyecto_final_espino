@@ -135,18 +135,9 @@
 
     methods: {
       borrarPedido(id) {
-
-        axios
-          .delete(
-            `https://61b145c33c954f001722a877.mockapi.io/pedidos/${id}`
-          )
-          .then((data) => {
-            console.log("Borrar pedido:", data.data.id);
-            this.levantarPedidos()
-          })
-          .catch((err) => {console.error(`${err}`)})
-
+        this.$store.dispatch("borrarPedido", id)
       },
+      
       entregarPedido(pedido) {
         this.editpedido.userid = pedido.userid
         this.editpedido.productos = pedido.productos
