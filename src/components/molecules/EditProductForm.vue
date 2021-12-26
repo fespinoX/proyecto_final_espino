@@ -6,10 +6,10 @@
     >
       <v-container>
         <v-row>
-
+          
           <v-col
             cols="12"
-          >
+          >       
             <v-text-field
               v-model="editproduct.name"
               :rules="nameRules"
@@ -87,6 +87,7 @@
     data: () => ({
       valid: false,
       editproduct: {
+        id: '',
         name: '',
         desc: '',
         img: '',
@@ -120,6 +121,7 @@
 
       levantarProducto() {
         this.editproduct = {
+          id: '',
           name: '',
           desc: '',
           qty: '',
@@ -136,19 +138,9 @@
       },
 
       editarProducto() {
-        axios
-          .put(
-            `https://61b145c33c954f001722a877.mockapi.io/productos/${this.productid}`,
-            this.editproduct
+        this.$store.dispatch("editarProducto", this.editproduct)
 
-          )
-          .then(() => {
-            // this.levantarProductos() esto lo tiene que hacer el padre
-            // console.log(data)
-            this.refrescar()
 
-          })
-          .catch((err) => {console.error(`${err}`)})
 
       },
 

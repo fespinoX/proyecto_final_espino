@@ -85,7 +85,7 @@
 
 <script>
 
-  import axios from "axios"
+  // import axios from "axios"
 
   // Vuex
   import { mapState } from "vuex"
@@ -137,7 +137,7 @@
       borrarPedido(id) {
         this.$store.dispatch("borrarPedido", id)
       },
-      
+
       entregarPedido(pedido) {
         this.editpedido.userid = pedido.userid
         this.editpedido.productos = pedido.productos
@@ -146,17 +146,7 @@
         this.editpedido.fecha = pedido.fecha
         this.editpedido.id = pedido.id
 
-        axios
-          .put(
-            `https://61b145c33c954f001722a877.mockapi.io/pedidos/${pedido.id}`,
-            this.editpedido
-
-          )
-          .then(() => {
-            console.log("pedido " + this.editpedido.id + " entregado")
-            this.levantarPedidos()
-          })
-          .catch((err) => {console.error(`${err}`)})
+        this.$store.dispatch("editarPedido", this.editpedido)
 
       }
     },

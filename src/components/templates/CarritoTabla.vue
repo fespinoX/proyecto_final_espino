@@ -100,7 +100,7 @@
 
 <script>
 
-  import axios from "axios"
+  // import axios from "axios"
 
   export default {
     name: 'CarritoTabla',
@@ -211,16 +211,7 @@
 
         this.agregarItemsAlPedido()
 
-        axios
-          .post(
-            `https://61b145c33c954f001722a877.mockapi.io/pedidos`,
-            this.newpedido
-
-          )
-          .then((data) => {
-            console.log("El pedido agregado es:", data);
-          })
-          .catch((err) => {console.error(`${err}`)})
+        this.$store.dispatch("agregarPedido", this.newpedido)
 
         this.vaciarCarrito()
         this.$router.push('/');

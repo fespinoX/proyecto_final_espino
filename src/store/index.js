@@ -28,6 +28,12 @@ export default new Vuex.Store({
       state.pedidos.push(payload)
     },
 
+    // Editar
+    EDITAR_PRODUCTO() {
+    },  
+    EDITAR_PEDIDO() {
+    },  
+
     // Borrar
     BORRAR_PRODUCTO() {
     },
@@ -68,6 +74,21 @@ export default new Vuex.Store({
 
     },
 
+    editarProducto(context, payload) {
+      axios
+        .put(
+          `https://61b145c33c954f001722a877.mockapi.io/productos/${payload.id}`,
+          payload
+
+        )
+        .then(() => {
+          console.log('editaste, capo!')
+
+        })
+        .catch((err) => {console.error(`${err}`)})
+
+    },    
+
     borrarProducto(context, payload) {
       axios
       .delete(
@@ -105,6 +126,21 @@ export default new Vuex.Store({
         .catch((err) => {console.error(`${err}`)})
 
     },
+
+    editarPedido(context, payload) {
+      axios
+        .put(
+          `https://61b145c33c954f001722a877.mockapi.io/pedidos/${payload.id}`,
+          payload
+
+        )
+        .then(() => {
+          console.log('editaste el pedido, capo!')
+
+        })
+        .catch((err) => {console.error(`${err}`)})
+
+    },      
 
     borrarPedido(context, payload) {
       axios
