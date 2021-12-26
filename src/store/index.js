@@ -5,11 +5,13 @@ import axios from 'axios'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+  
   state: {
     productos: [],
     loadingProductos: true,
     pedidos: [],
   },
+
   mutations: {
 
     // Definir
@@ -29,7 +31,9 @@ export default new Vuex.Store({
     },
 
     // Editar
-    EDITAR_PRODUCTO() {
+    EDITAR_PRODUCTO(state, payload) {
+      console.log("state es", state)
+      console.log("payload es", payload)
     },  
     EDITAR_PEDIDO() {
     },  
@@ -45,6 +49,7 @@ export default new Vuex.Store({
       state.loadingProductos = payload
     },
   },
+
   actions: {
 
     // Productos
@@ -82,8 +87,14 @@ export default new Vuex.Store({
 
         )
         .then(() => {
+          context.commit("EDITAR_PRODUCTO", payload)
           console.log('editaste, capo!')
-
+          axios
+            .get('https://61b145c33c954f001722a877.mockapi.io/productos')
+            .then(data => {
+              context.commit("PRODUCTOS", data.data)
+            })
+            .catch((err) => {console.error(`${err}`)})
         })
         .catch((err) => {console.error(`${err}`)})
 
@@ -96,7 +107,6 @@ export default new Vuex.Store({
       )
       .then((data) => {
         console.log("Borrar producto:", data.data.name);
-        this.$store.dispatch("levantarProductos")
       })
       .catch((err) => {console.error(`${err}`)})
     },

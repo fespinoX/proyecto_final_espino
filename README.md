@@ -151,6 +151,7 @@ ___
 
 #### Must
 * Agregar lógica para que muestre los links y el content en base al tipo de usuario
+* Mensaje si la psw es incorrecta
 
 #### Nice to have
 * hashear contraseñas
