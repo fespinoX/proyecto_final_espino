@@ -37,7 +37,11 @@ export default new Vuex.Store({
       state.productos.splice(index, 1)
       state.productos.push(data.data)
     },  
-    EDITAR_PEDIDO() {
+    EDITAR_PEDIDO(state, data) {
+      let id = data.data.id
+      let index = state.pedidos.findIndex(pedido => pedido.id == id)
+      state.pedidos.splice(index, 1)
+      state.pedidos.push(data.data)
     },  
 
     // Borrar
@@ -140,18 +144,20 @@ export default new Vuex.Store({
 
     },
 
-    editarPedido(context, payload) {
+    editarPedido({commit}, payload) {
+
       axios
-        .put(
-          `https://61b145c33c954f001722a877.mockapi.io/pedidos/${payload.id}`,
-          payload
+      .put(
+        `https://61b145c33c954f001722a877.mockapi.io/pedidos/${payload.id}`,
+        payload
 
-        )
-        .then(() => {
-          console.log('editaste el pedido, capo!')
+      )
+      .then((data) => {
+        commit('EDITAR_PEDIDO', data)
+        console.log('editaste, capo!')
 
-        })
-        .catch((err) => {console.error(`${err}`)})
+      })
+      .catch((err) => {console.error(`${err}`)})
 
     },      
 
