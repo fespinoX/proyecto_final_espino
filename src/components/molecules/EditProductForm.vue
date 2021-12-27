@@ -158,7 +158,6 @@
         console.log("el producto editado es: ", this.editproduct.name)
         this.$emit("submit", this.editproduct.name);
         this.vaciarForm()
-        this.$store.dispatch("levantarProductos")
       }
 
     },

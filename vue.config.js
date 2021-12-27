@@ -1,8 +1,13 @@
 module.exports = {
+  devServer: {
+    host: '0.0.0.0',
+    hot: true,
+    disableHostCheck: true,
+  },
   transpileDependencies: [
     'vuetify'
   ],
-  publicPath: process.env.NODE_ENV === 'production'
+  publicPath: "/"
     ? 'dev/'
     : '/',
   outputDir: process.env.VUE_BUILD_FOLDER,

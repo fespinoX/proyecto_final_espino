@@ -71,6 +71,7 @@
       <v-btn
         class="mr-4"
         @click="submit"
+        color="primary"
       >
         Agregar
       </v-btn>
