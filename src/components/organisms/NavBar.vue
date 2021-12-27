@@ -123,6 +123,9 @@ export default {
       localStorage.removeItem('carrito');
       localStorage.removeItem('user');
       this.$router.push('/user');
+
+      this.$store.dispatch("borrarUsuario")
+      
     }
   },
 

@@ -10,6 +10,7 @@ export default new Vuex.Store({
     productos: [],
     loadingProductos: true,
     pedidos: [],
+    usuario: [],
   },
 
   mutations: {
@@ -20,6 +21,9 @@ export default new Vuex.Store({
     },
     PEDIDOS(state, payload) {
       state.pedidos = payload
+    },
+    USUARIO(state, usuario) {
+      state.usuario = usuario
     },
 
     // Agregar
@@ -52,7 +56,10 @@ export default new Vuex.Store({
     BORRAR_PEDIDO(state, id) {
       let index = state.pedidos.findIndex(pedido => pedido.id == id)
       state.pedidos.splice(index, 1)
-    },    
+    },
+    BORRAR_USUARIO(state) {
+      state.usuario = []
+    },
 
     // Load
     LOADING_PRODUCTOS(state, payload) {
@@ -172,6 +179,16 @@ export default new Vuex.Store({
       })
       .catch((err) => {console.error(`${err}`)})
     },
+
+    // Usuario
+
+    settearUsuario(context, usuario){
+      context.commit("USUARIO", usuario)
+    },
+
+    borrarUsuario(context) {
+      context.commit("BORRAR_USUARIO")
+    }
 
   },
   modules: {

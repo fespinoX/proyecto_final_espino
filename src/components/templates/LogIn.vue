@@ -79,6 +79,9 @@
           if (usuario) {
             if (this.password === usuario.password) {
               this.logueado = true
+
+              this.$store.dispatch("settearUsuario", usuario)
+
               console.log("Bienvenido", usuario.firstName)
               localStorage.setItem('user', JSON.stringify(usuario))
               this.$router.push('/');
