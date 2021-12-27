@@ -31,17 +31,23 @@ export default new Vuex.Store({
     },
 
     // Editar
-    EDITAR_PRODUCTO(state, payload) {
-      console.log("state es", state)
-      console.log("payload es", payload)
+    EDITAR_PRODUCTO(state, data) {
+      let id = data.data.id
+      let index = state.productos.findIndex(producto => producto.id == id)
+      state.productos.splice(index, 1)
+      state.productos.push(data.data)
     },  
     EDITAR_PEDIDO() {
     },  
 
     // Borrar
-    BORRAR_PRODUCTO() {
+    BORRAR_PRODUCTO(state, id) {
+      let index = state.productos.findIndex(producto => producto.id == id)
+      state.productos.splice(index, 1)
     },
-    BORRAR_PEDIDO() {
+    BORRAR_PEDIDO(state, id) {
+      let index = state.pedidos.findIndex(pedido => pedido.id == id)
+      state.pedidos.splice(index, 1)
     },    
 
     // Load
@@ -79,34 +85,31 @@ export default new Vuex.Store({
 
     },
 
-    editarProducto(context, payload) {
+    editarProducto({commit}, payload) {
       axios
         .put(
           `https://61b145c33c954f001722a877.mockapi.io/productos/${payload.id}`,
           payload
 
         )
-        .then(() => {
-          context.commit("EDITAR_PRODUCTO", payload)
+        .then((data) => {
+          commit('EDITAR_PRODUCTO', data)
           console.log('editaste, capo!')
-          axios
-            .get('https://61b145c33c954f001722a877.mockapi.io/productos')
-            .then(data => {
-              context.commit("PRODUCTOS", data.data)
-            })
-            .catch((err) => {console.error(`${err}`)})
+ 
         })
         .catch((err) => {console.error(`${err}`)})
 
     },    
 
-    borrarProducto(context, payload) {
+    borrarProducto({commit}, payload) {
       axios
       .delete(
         `https://61b145c33c954f001722a877.mockapi.io/productos/${payload}`
       )
       .then((data) => {
         console.log("Borrar producto:", data.data.name);
+        commit('BORRAR_PRODUCTO', data.data.id)
+
       })
       .catch((err) => {console.error(`${err}`)})
     },
@@ -152,13 +155,14 @@ export default new Vuex.Store({
 
     },      
 
-    borrarPedido(context, payload) {
+    borrarPedido({commit}, payload) {
       axios
       .delete(
         `https://61b145c33c954f001722a877.mockapi.io/pedidos/${payload}`
       )
       .then((data) => {
         console.log("Borrar pedido:", data.data.id);
+        commit('BORRAR_PEDIDO', data.data.id)
       })
       .catch((err) => {console.error(`${err}`)})
     },
