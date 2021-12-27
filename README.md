@@ -87,7 +87,7 @@ ___
 
 * Alumna: Florencia Espino
 * Tutor: Diego Mafferra
-* Trabajo: Segunda Entrega del Proyecto Final
+* Trabajo: Tercera Entrega del Proyecto Final
 
 ___
 
