@@ -3,9 +3,7 @@
     
     <NavBar />
   
-    <div
-      v-if="admin"
-    >
+    <div>
       <v-card>
         <v-tabs
           v-model="tab"
@@ -65,25 +63,6 @@
 
       </v-card>
     </div>
-    <v-container
-      v-else-if="logueado"
-    >
-      <v-row>
-        <v-col
-          cols="6"
-          offset="3"
-          class="mt-4 text-center"
-        >
-          <p>Hey! Esta página es sólo para administradores</p>
-          <v-btn 
-            color="accent"
-            @click="irAlLogin()">
-            Cambiar de usuario
-          </v-btn>
-        </v-col>
-      </v-row>
-
-    </v-container>
 
   </div>
 </template>
@@ -106,11 +85,9 @@
     data: () => ({
         productos: [],
         tab: null,
-        logueado: false,
-        admin: false,
     }),
     methods: {
-      checkLogueado() {
+      /*checkLogueado() {
         if(JSON.parse(localStorage.getItem('user'))) {
           this.logueado = true
         } else {
@@ -127,14 +104,14 @@
         localStorage.removeItem('carrito');
         localStorage.removeItem('user');
         this.$router.push('/user');
-      },
+      },*/
     },
     mounted() {
       
-      this.$nextTick(function () {
+      /*this.$nextTick(function () {
         this.checkLogueado()
         this.checkAdmin()
-      })
+      })*/
     }
   }
 

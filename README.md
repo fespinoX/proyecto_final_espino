@@ -87,7 +87,7 @@ ___
 
 * Alumna: Florencia Espino
 * Tutor: Diego Mafferra
-* Trabajo: Tercera Entrega del Proyecto Final
+* Trabajo: Proyecto Final
 
 ___
 
@@ -145,7 +145,7 @@ ___
 * Limitar cantidad de producto que se puede agregar al carrito en base al stock
 
 #### Nice to have
-
+* Carrito: usar getters xa el total de productos del carrito
 
 ### User
 

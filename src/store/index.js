@@ -10,7 +10,18 @@ export default new Vuex.Store({
     productos: [],
     loadingProductos: true,
     pedidos: [],
-    usuario: [],
+    usuario: {
+      user: false,
+      admin: false
+    },
+  },
+
+  getters: {
+
+    isLoggedIn: state => state.usuario.user,
+
+    isAdmin: state => state.usuario.admin
+    
   },
 
   mutations: {
@@ -58,7 +69,7 @@ export default new Vuex.Store({
       state.pedidos.splice(index, 1)
     },
     BORRAR_USUARIO(state) {
-      state.usuario = []
+      state.usuario = {}
     },
 
     // Load
@@ -183,11 +194,19 @@ export default new Vuex.Store({
     // Usuario
 
     settearUsuario(context, usuario){
+      localStorage.setItem('user', JSON.stringify(usuario))
       context.commit("USUARIO", usuario)
     },
 
     borrarUsuario(context) {
       context.commit("BORRAR_USUARIO")
+    },
+
+    checkUsuario(context) {
+      let usuario = localStorage.getItem('user')
+      if (usuario) {
+        context.commit("USUARIO", JSON.parse(usuario))
+      }
     }
 
   },

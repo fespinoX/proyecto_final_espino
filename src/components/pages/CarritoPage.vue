@@ -54,23 +54,11 @@
     },
     data: () => ({
       mostrarCarrito: false,
-      logueado: false
     }),
 
     methods: {
-      checkLogueado() {
-        if(JSON.parse(localStorage.getItem('user'))) {
-          this.logueado = true
-        } else {
-          this.logueado = false
-          this.$router.push('/User');
-        }
-      },
       checkCarrito() {
-        // console.log("entro al metodo")
-        // console.log("carrito ls es:", localStorage.getItem('carrito'))
         if(localStorage.getItem('carrito') && localStorage.getItem('carrito').length > 2 && localStorage.getItem('carrito') != null) {
-          //console.log("entro acaaa")
           this.mostrarCarrito = true
         } else {
           this.mostrarCarrito = false
@@ -87,7 +75,6 @@
 
     mounted() {
       this.$nextTick(function () {
-        this.checkLogueado()
         this.checkCarrito()
       })
     }

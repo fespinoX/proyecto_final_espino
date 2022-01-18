@@ -83,7 +83,7 @@
               this.$store.dispatch("settearUsuario", usuario)
 
               console.log("Bienvenido", usuario.firstName)
-              localStorage.setItem('user', JSON.stringify(usuario))
+              
               this.$router.push('/');
             } else {
               console.log("usuario o contraseña incorrecta")

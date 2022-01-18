@@ -28,7 +28,8 @@
 
     mounted() {
       this.$store.dispatch("levantarProductos")
-      this.$store.dispatch("levantarPedidos")
+      this.$store.dispatch("levantarProductos")
+      this.$store.dispatch("checkUsuario")
     }
   
   };
