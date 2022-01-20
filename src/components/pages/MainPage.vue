@@ -6,6 +6,7 @@
       <v-row class="text-center">
         <v-col cols="12">
           <h1 class="page-guia">Main Page</h1>
+            <Alert />
             <ListaProductos />
         </v-col>
       </v-row>
@@ -16,13 +17,15 @@
 <script>
 
   // Components
-  import ListaProductos from './../templates/ListaProductos';
   import NavBar from './../organisms/NavBar.vue';
+  import Alert from './../atoms/Alert.vue';
+  import ListaProductos from './../templates/ListaProductos';
 
   export default {
     name: 'MainPage',
     components: {
       NavBar,
+      Alert,
       ListaProductos,
     },
 
@@ -43,13 +46,6 @@
 
 <style>
   
-  /*
-  *
-  Esto lo uso para mostrar la guia de paginas y no perderme entre
-  componentes mientras estoy desarrollando
-  */
-  .page-guia {
-    /*display: none;*/
-  }
+
 
 </style>

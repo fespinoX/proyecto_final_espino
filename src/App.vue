@@ -10,12 +10,8 @@
 
 <script>
 
-  // Components
-  
-
   export default {
     name: 'App',
-
     components: {
 
     },

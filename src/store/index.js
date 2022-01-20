@@ -14,12 +14,17 @@ export default new Vuex.Store({
       user: false,
       admin: false
     },
+    alert: {
+      type: "success",
+      color: "orange",
+      visible: true,
+      mensaje: "trixie",
+    }
   },
 
   getters: {
 
     isLoggedIn: state => state.usuario.user,
-
     isAdmin: state => state.usuario.admin
     
   },
@@ -76,6 +81,18 @@ export default new Vuex.Store({
     LOADING_PRODUCTOS(state, payload) {
       state.loadingProductos = payload
     },
+
+    // Alert
+    NEW_ALERT(state, payload) {
+      state.alert.mensaje = payload.mensaje;
+      state.alert.type = payload.type;
+      state.alert.color = payload.color;
+      state.alert.visible = true;
+    },
+    CLOSE_ALERT(state) {
+      state.alert.visible = false;
+    }
+
   },
 
   actions: {
@@ -207,6 +224,13 @@ export default new Vuex.Store({
       if (usuario) {
         context.commit("USUARIO", JSON.parse(usuario))
       }
+    },
+
+    mostrarAlert({ commit }, payload) {
+      commit("NEW_ALERT", payload);
+      setTimeout(function() {
+        commit("CLOSE_ALERT");
+      }, 5000);
     }
 
   },

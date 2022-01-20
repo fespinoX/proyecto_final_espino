@@ -90,6 +90,7 @@
         console.log("el carrito del ls: ")
         console.log(localStorage.getItem('carrito'))
         console.log("agregado " + this.productoAgregado.name + " al carrito")
+        this.$store.dispatch("mostrarAlert")
       },
       setInLs () {
         let carrito = []
