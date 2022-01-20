@@ -158,15 +158,7 @@
     }
   }
 
-/* 
 
-TODO:
-
-* DELETE: Agregar confirm dialog
-* PUT: Confirm antes de entregar
-* Mostrar sólo los entregados (quizás un filtro en la tabla?)
-
-*/
 
 </script>
 
