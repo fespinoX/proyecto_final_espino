@@ -91,24 +91,38 @@ ___
 
 ___
 
-## Pendientes TODO:
+## Pendientes TODO: obligatorios para entrega
 
-### General
+### General:
 
-* Agregar mixins para los métodos que se repiten
-* Mejorar style
+* Mensaje de error de autenticación
 * Comentar console logs
 
+### Usuario final:
+
+* Página para completar datos de envío y método de pago
+* Resumen de compra al final del pedido
+* Que checkee si el producto ya existe en el carrito antes de agregarlo
+* Alerta cuando se agrega desde card (y que se cierre)
+
+
+### Admin
+
+* Ver por qué no anda la tab pedidos
+
+
+
+
+## Cositas extra
 
 ### Admin
-
-#### Must
 
 * Agregar Producto: Botón de cancelar
 * Agregar Producto: Validación al hacer click en agregar
 * Agregar Producto: Confirm antes de agregar
 * Agregar Producto: Limpiar y ocultar formulario
-* Agregar Producto: Mensaje de que se agrego
+* Agregar Producto: Alerta de que se agrego
+
 * Editar Producto: Botón de cancelar
 * Editar Producto: Confirm antes de editar
 * Borrar Producto: Confirm antes de borrar
@@ -119,19 +133,9 @@ ___
 * Mensaje si no hay productos
 * Mensaje si no hay pedidos
 
-#### Nice to have
-
-* Usuarios: Mostrar lista
-* Editar Usuarios
-* Borrar Usuarios
-* Agregar Usuarios
-
 
 ### Cliente
 
-#### Must
-
-* Carrito: Alerta cuando se agrega al carrito desde la producto card
 * Carrito: Alerta cuando se agrega al carrito y cerrar el dialog
 * Carrito: Que checkee si ya existe el item en el carrito, si existe agregar la cantidad al objeto correspondiente
 * Carrito: mensaje de ok cuando se edita
@@ -143,16 +147,9 @@ ___
 * Carrito: mensaje de ok cuando se manda el pedido
 
 * Limitar cantidad de producto que se puede agregar al carrito en base al stock
-
-#### Nice to have
 * Carrito: usar getters xa el total de productos del carrito
 
 ### User
 
-#### Must
 * Agregar lógica para que muestre los links y el content en base al tipo de usuario
 * Mensaje si la psw es incorrecta
-
-#### Nice to have
-* hashear contraseñas
-* introducir psw dos veces y comparar

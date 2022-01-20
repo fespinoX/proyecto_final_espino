@@ -15,10 +15,11 @@ export default new Vuex.Store({
       admin: false
     },
     alert: {
-      type: "success",
-      color: "orange",
-      visible: true,
-      mensaje: "trixie",
+      type: null,
+      color: "",
+      visible: false,
+      alerta: "",
+      texto: "",
     }
   },
 
@@ -84,10 +85,11 @@ export default new Vuex.Store({
 
     // Alert
     NEW_ALERT(state, payload) {
-      state.alert.mensaje = payload.mensaje;
       state.alert.type = payload.type;
       state.alert.color = payload.color;
       state.alert.visible = true;
+      state.alert.alerta = payload.alerta;
+      state.alert.texto = payload.texto;
     },
     CLOSE_ALERT(state) {
       state.alert.visible = false;
@@ -228,6 +230,10 @@ export default new Vuex.Store({
 
     mostrarAlert({ commit }, payload) {
       commit("NEW_ALERT", payload);
+
+      // scroll to top
+      scroll(0,0)
+      
       setTimeout(function() {
         commit("CLOSE_ALERT");
       }, 5000);

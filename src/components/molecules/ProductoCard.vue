@@ -66,7 +66,7 @@
         name: '',
         price: '',
         img: '',
-      },      
+      },
     }),
     props: {
       product: {
@@ -90,8 +90,20 @@
         console.log("el carrito del ls: ")
         console.log(localStorage.getItem('carrito'))
         console.log("agregado " + this.productoAgregado.name + " al carrito")
-        this.$store.dispatch("mostrarAlert")
+
+        this.mostrarAlerta()
       },
+
+      mostrarAlerta () {
+        let alert = {
+          type: "success",
+          visible: true,
+          alerta: "carrito",
+          texto: this.alertContent,
+        }
+        this.$store.dispatch("mostrarAlert", alert)
+      },
+
       setInLs () {
         let carrito = []
         if(!localStorage.getItem('carrito')) {
@@ -104,6 +116,11 @@
         }
       }      
     },
+    computed: {
+      alertContent: function () {
+        return this.productoAgregado.name
+      }
+    }
   }
 
 </script>

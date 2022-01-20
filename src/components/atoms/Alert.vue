@@ -2,10 +2,16 @@
 
   <v-alert
     dismissible
-    color = color
-    value = value
+    :type = type
+    :color = color
+    :value = value
   >
-  {{ mensaje }}
+    <p
+      class="alertmsg"
+      v-if="alerta === 'carrito'"
+    >
+      Agregaste <span class="bold">{{ texto }}</span> al carrito.
+    </p>
   </v-alert>
 
 </template>
@@ -30,11 +36,24 @@ export default {
 
   computed: {
     ...mapState({
+        type: state => state.alert.type,
         color: state => state.alert.color,
-        value: state => state.alert.value,
-        mensaje: state => state.alert.mensaje
+        value: state => state.alert.visible,
+        alerta: state => state.alert.alerta,
+        texto: state => state.alert.texto
     })
   },
 
 };
 </script>
+
+
+<style lang="scss" scoped>
+  .alertmsg {
+    margin: 0;
+
+    .bold {
+      font-weight: 600;
+    }
+  }
+</style>
