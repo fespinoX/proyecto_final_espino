@@ -106,11 +106,6 @@ ___
 * Alerta cuando se agrega desde card (y que se cierre)
 
 
-### Admin
-
-* Ver por qué no anda la tab pedidos
-
-
 
 
 ## Cositas extra
