@@ -68,23 +68,10 @@ export default {
         this.productoAgregado.name = this.productoSeleccionado.name
         this.productoAgregado.price = this.productoSeleccionado.price
         this.productoAgregado.img = this.productoSeleccionado.img
-        this.setInLs()
-        console.log("el carrito del ls: ")
-        console.log(localStorage.getItem('carrito'))
-        console.log("agregado " + this.productoAgregado.name + " al carrito")
+        
+        this.$store.dispatch("agregarAlCarrito", this.productoAgregado)
       }
     },
-    setInLs () {
-      let carrito = []
-      if(!localStorage.getItem('carrito')) {
-        carrito.push(this.productoAgregado);
-        localStorage.setItem('carrito', JSON.stringify(carrito))
-      } else {
-        carrito = JSON.parse(localStorage.getItem('carrito'))
-        carrito.push(this.productoAgregado);
-        localStorage.setItem('carrito', JSON.stringify(carrito))
-      }
-    }
   }
 };
 </script>

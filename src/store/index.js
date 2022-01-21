@@ -20,7 +20,9 @@ export default new Vuex.Store({
       visible: false,
       alerta: "",
       texto: "",
-    }
+    },
+    carrito: [],
+    totalCarrito: 0,
   },
 
   getters: {
@@ -41,6 +43,12 @@ export default new Vuex.Store({
     },
     USUARIO(state, usuario) {
       state.usuario = usuario
+    },
+    CARRITO(state, carrito) {
+      state.carrito = carrito
+    },
+    TOTALCARRITO(state, totalCarrito) {
+      state.totalCarrito = totalCarrito
     },
 
     // Agregar
@@ -155,6 +163,62 @@ export default new Vuex.Store({
       .catch((err) => {console.error(`${err}`)})
     },
 
+    // Carrito
+
+    levantarCarrito(context) {
+      JSON.parse(localStorage.getItem('carrito'))
+      let carritoLocal = JSON.parse(localStorage.getItem('carrito'))
+      context.commit("CARRITO", carritoLocal)
+    },
+
+    agregarAlCarrito(context, payload) {
+      let carrito = []
+      if(!localStorage.getItem('carrito')) {
+        carrito.push(payload);
+        localStorage.setItem('carrito', JSON.stringify(carrito))
+      } else {
+        carrito = JSON.parse(localStorage.getItem('carrito'))
+        carrito.push(payload);
+        localStorage.setItem('carrito', JSON.stringify(carrito))
+      }
+      context.commit("CARRITO", carrito)
+
+    },
+
+    editarItemCarrito(context, payload) {
+
+      let nuevoCarrito = JSON.parse(localStorage.getItem('carrito'))
+      nuevoCarrito.push(payload);
+      localStorage.setItem('carrito', JSON.stringify(nuevoCarrito))
+      context.commit("CARRITO", nuevoCarrito)
+    },    
+
+    borrarItemCarrito(context, payload) {
+
+      let carrito = JSON.parse(localStorage.getItem('carrito'));
+      const filtered = carrito.filter(item => item.id !== payload);
+      localStorage.setItem('carrito', JSON.stringify(filtered));
+
+      context.commit("CARRITO", filtered)
+
+    },
+
+    vaciarCarrito(context) {
+      localStorage.removeItem('carrito');
+      context.commit("CARRITO", [])
+    },
+
+    calcularTotalCarrito(context) {
+      let carrito = JSON.parse(localStorage.getItem('carrito'));
+      let totalCarrito = carrito.reduce(function(sum, current) {
+        sum + (current.price * current.qty)
+        return sum + (current.price * current.qty);
+      }, 0);
+
+      context.commit("TOTALCARRITO", totalCarrito)
+    },
+
+
     // Pedidos
 
     levantarPedidos(context){
@@ -199,6 +263,7 @@ export default new Vuex.Store({
     },      
 
     borrarPedido({commit}, payload) {
+      console.log("en borrar pedido payload es", payload)
       axios
       .delete(
         `https://61b145c33c954f001722a877.mockapi.io/pedidos/${payload}`
@@ -233,7 +298,7 @@ export default new Vuex.Store({
 
       // scroll to top
       scroll(0,0)
-      
+
       setTimeout(function() {
         commit("CLOSE_ALERT");
       }, 5000);

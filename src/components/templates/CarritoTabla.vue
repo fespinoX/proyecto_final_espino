@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h2>Mi Carrito</h2>
     <v-row>
       <v-col>
         <v-data-table
@@ -75,6 +76,11 @@
     </v-row>
     <v-row>
       <v-col>
+        Subtotal: {{totalCarrito}}
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col>
         <v-btn 
           color="secondary"
           dark
@@ -100,7 +106,8 @@
 
 <script>
 
-  // import axios from "axios"
+  import { mapState } from "vuex"
+  // import store from '@/store'
 
   export default {
     name: 'CarritoTabla',
@@ -135,7 +142,6 @@
           text: "Acciones"
         }
       ],
-      carrito: [],
       newpedido: {
         "userid": '',
         "productos": [],
@@ -149,60 +155,45 @@
         v => !!v || 'Por favor complete este campo',
         v => v > 0 || 'Este campo debe ser mayor a 0',
       ],
-      nuevocarrito: '',
     }),
 
     methods: {
 
       setCarrito() {
-        if(localStorage.getItem('carrito')) {
-          this.carrito = JSON.parse(localStorage.getItem('carrito'))
-        }        
+        this.$store.dispatch("levantarCarrito")
       },
 
       calcularTotal(qty, price) {
         return qty * price
       },
 
-      hayCarrito(nuevocarrito) {
-        if (nuevocarrito.length > 0) {
-          console.log("hay carrito")
-          return true
-        }
-      },
-
       borrarItemCarrito(id) {
 
-        this.makeNuevoCarrito(id)
-        
-        this.setCarrito()
+        this.$store.dispatch("borrarItemCarrito", id)
 
-        if (!this.hayCarrito(this.nuevocarrito)) {
-          // console.log("el carrito está vacío")
-          localStorage.removeItem('carrito');
-        }
-        
-        this.$emit("click", this.carrito);
+        //this.$emit("click", this.carrito);
 
       },
 
       editarItemCarrito(item) {
-        let carrito = []
-        this.makeNuevoCarrito(item.id)
+
+        this.$store.dispatch("borrarItemCarrito", item.id)
+
         let itemeditado = {
           id: item.id,
-          qty: item.qty,
+          qty: parseInt(item.qty),
           name: item.name,
           price: item.price,
           img: item.img
         }
-        carrito = JSON.parse(localStorage.getItem('carrito'))
-        carrito.push(itemeditado);
-        localStorage.setItem('carrito', JSON.stringify(carrito))
+
+        this.$store.dispatch("editarItemCarrito", itemeditado)
+        this.$store.dispatch("calcularTotalCarrito")
+
       },
 
       vaciarCarrito() {
-        localStorage.removeItem('carrito');
+        this.$store.dispatch("vaciarCarrito")
         this.$emit("click", this.carrito);
         
       },
@@ -241,22 +232,19 @@
 
       },
 
-      makeNuevoCarrito(id) {
-        this.nuevocarrito = this.carrito.filter(function( obj ) {
-          return obj.id !== id;
-        });
-        localStorage.setItem('carrito', JSON.stringify(this.nuevocarrito))
-      }
-
     },
 
-    computed: {
-
+    computed : {
+      ...mapState({
+        carrito: state => state.carrito,
+        totalCarrito: state => state.totalCarrito,
+      }),
     },
     
     mounted() {
       this.$nextTick(function () {
-          this.setCarrito()
+          this.$store.dispatch("levantarCarrito")
+          this.$store.dispatch("calcularTotalCarrito")
       })
     }    
   }

@@ -6,16 +6,47 @@
       <v-row class="text-center">
         <v-col cols="12">
           <h1 class="page-guia">Carrito Page</h1>
-          <h2>Mi Carrito</h2>
         </v-col>
       </v-row>
 
       <v-row>
         <v-col>
-          <CarritoTabla
+
+          <div
             v-if="mostrarCarrito"
-            @click="borrarItemCarrito"
-          />
+          >
+
+            <div
+              v-if="paginaCarrito === 1"
+            >
+              <CarritoTabla
+                @click="borrarItemCarrito"
+              />
+
+            </div>
+
+            <div
+              v-else-if="paginaCarrito === 2"
+            >
+              <v-row>
+                <v-col>
+                  <PedidoForm />
+                </v-col>
+                <v-col>
+                  <ResumenCarrito />
+                </v-col>
+              </v-row>
+            </div>
+
+            <div
+              v-else
+            >
+              <p>confirmacion pedido</p>
+            </div>
+
+
+          </div>
+
           <div
             v-else
           >
@@ -36,15 +67,21 @@
 
 <script>
 
+  import store from '@/store'
+
   //Components
   import NavBar from './../organisms/NavBar.vue'
   import CarritoTabla from '../templates/CarritoTabla.vue'
+  import PedidoForm from '../molecules/PedidoForm.vue'
+  import ResumenCarrito from '../molecules/ResumenCarrito.vue'
 
 
   export default {
     components: {
       NavBar,
-      CarritoTabla 
+      CarritoTabla,
+      PedidoForm,
+      ResumenCarrito
     },
     name: 'CarritoPage',
     props: {
@@ -54,23 +91,29 @@
     },
     data: () => ({
       mostrarCarrito: false,
+      paginaCarrito: 1,
     }),
 
     methods: {
+
       checkCarrito() {
-        if(localStorage.getItem('carrito') && localStorage.getItem('carrito').length > 2 && localStorage.getItem('carrito') != null) {
+        this.$store.dispatch("levantarCarrito")
+        if(store.state.carrito) {
           this.mostrarCarrito = true
         } else {
           this.mostrarCarrito = false
         }
       },
+
       borrarItemCarrito (info) {
         console.log("info es: ", info)
         this.checkCarrito()
       },
+
       irAhome() {
         this.$router.push('/');
       }
+      
     },
 
     mounted() {

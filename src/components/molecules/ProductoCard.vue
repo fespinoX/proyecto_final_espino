@@ -86,10 +86,8 @@
         this.productoAgregado.name = product.name
         this.productoAgregado.price = product.price
         this.productoAgregado.img = product.img
-        this.setInLs()
-        console.log("el carrito del ls: ")
-        console.log(localStorage.getItem('carrito'))
-        console.log("agregado " + this.productoAgregado.name + " al carrito")
+        
+        this.$store.dispatch("agregarAlCarrito", this.productoAgregado)
 
         this.mostrarAlerta()
       },
@@ -102,19 +100,7 @@
           texto: this.alertContent,
         }
         this.$store.dispatch("mostrarAlert", alert)
-      },
-
-      setInLs () {
-        let carrito = []
-        if(!localStorage.getItem('carrito')) {
-          carrito.push(this.productoAgregado);
-          localStorage.setItem('carrito', JSON.stringify(carrito))
-        } else {
-          carrito = JSON.parse(localStorage.getItem('carrito'))
-          carrito.push(this.productoAgregado);
-          localStorage.setItem('carrito', JSON.stringify(carrito))
-        }
-      }      
+      },   
     },
     computed: {
       alertContent: function () {

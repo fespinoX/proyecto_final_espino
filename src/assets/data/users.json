@@ -7,6 +7,11 @@
    "user": "fespinox",
    "email": "florencia.espino@gmail.com",
    "password": "Fespi123",
+   "addressLineOne": "Calle Falsa 123",
+   "addressLineTwo": "6to A",
+   "city": "Capital Federal",
+   "province": "CABA",
+   "postal": "1234",
    "id": "1"
   },
   {
@@ -17,6 +22,11 @@
    "user": "trixi3",
    "email": "trixie@gmail.com",
    "password": "Trixie123",
+   "addressLineOne": "Nieve 23",
+   "addressLineTwo": "",
+   "city": "Ushuaia",
+   "province": "Tierra del Fuego",
+   "postal": "4545",
    "id": "2"
   },
   {
@@ -27,36 +37,11 @@
    "user": "z4mo",
    "email": "katya@gmail.com",
    "password": "Katya123",
+   "addressLineOne": "Algo 1234",
+   "addressLineTwo": "Puerta 5",
+   "city": "Florida",
+   "province": "Buenos Aires",
+   "postal": "1235",
    "id": "3"
-  },
-  {
-   "firstName": "Manila",
-   "avatar": "https://www.coolgenerator.com/Pic/Face//male/male20151086225868957.jpg",
-   "admin": false,
-   "lastName": "Luzon",
-   "user": "m4nila",
-   "email": "manila@gmail.com",
-   "password": "Manila123",
-   "id": "4"
-  },
-  {
-   "firstName": "Alaska",
-   "avatar": "https://www.coolgenerator.com/Pic/Face//male/male10847481221.jpg",
-   "admin": false,
-   "lastName": "Thunder",
-   "user": "alaska5000",
-   "email": "alaska@gmail.com",
-   "password": "Alaska123",
-   "id": "5"
-  },
-  {
-   "firstName": "Dexter",
-   "avatar": "https://www.coolgenerator.com/Pic/Face//male/male1085468934326.jpg",
-   "admin": false,
-   "lastName": "Morgan",
-   "user": "thed3x",
-   "email": "dexter@gmail.com",
-   "password": "Dexter123",
-   "id": "6"
   }
  ]
