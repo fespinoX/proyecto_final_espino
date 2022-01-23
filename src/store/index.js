@@ -174,11 +174,32 @@ export default new Vuex.Store({
     agregarAlCarrito(context, payload) {
       let carrito = []
       if(!localStorage.getItem('carrito')) {
+        // si no habia carrito, lo crea
         carrito.push(payload);
         localStorage.setItem('carrito', JSON.stringify(carrito))
       } else {
+        // si ya existía el carrito , lo levanta
         carrito = JSON.parse(localStorage.getItem('carrito'))
-        carrito.push(payload);
+        
+        //checkeo si el id ya esta en el carrito
+        let itemInCarrito = carrito.find(x => x.id === payload.id)
+        if (itemInCarrito) {
+          let producto = payload
+          let qtyAnterior = itemInCarrito.qty
+
+          let carritoFiltrado = carrito.filter(item => item.id !== producto.id)
+          carrito = carritoFiltrado
+          
+          // cambio la cantidad
+          producto.qty = (producto.qty + qtyAnterior)
+
+          // vuelvo a agregarlo al carrito
+          carrito.push(producto);
+
+        } else {
+          carrito.push(payload);
+        }
+        
         localStorage.setItem('carrito', JSON.stringify(carrito))
       }
       context.commit("CARRITO", carrito)

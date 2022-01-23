@@ -64,11 +64,12 @@ export default {
     agregarAlCarrito () {
       if (this.valid) {
         this.productoAgregado.id = this.productoSeleccionado.id
-        this.productoAgregado.qty = this.carritoQty
+        this.productoAgregado.qty = parseInt(this.carritoQty)
         this.productoAgregado.name = this.productoSeleccionado.name
         this.productoAgregado.price = this.productoSeleccionado.price
         this.productoAgregado.img = this.productoSeleccionado.img
         
+        console.log("producto agregado es", this.productoAgregado)
         this.$store.dispatch("agregarAlCarrito", this.productoAgregado)
       }
     },

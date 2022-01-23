@@ -89,6 +89,8 @@
         
         this.$store.dispatch("agregarAlCarrito", this.productoAgregado)
 
+        this.$store.dispatch("levantarCarrito")
+
         this.mostrarAlerta()
       },
 
