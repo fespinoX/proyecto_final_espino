@@ -40,6 +40,7 @@
       :productoSeleccionado="productoSeleccionado"
       :open="dialog"
       @manejarVentana="manejarVentana($event)"
+      @close="manejarVentana(false)"
       
     />
   </div>

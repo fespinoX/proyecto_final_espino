@@ -35,7 +35,7 @@
           <p>{{pedido.addressLineOne}}</p>
           <p>{{pedido.addressLineTwo}}</p>
           <p>{{pedido.city}} {{pedido.province}}</p>
-          <p>{{postal}}</p>
+          <p>{{pedido.postal}}</p>
         </div>
 
         <p>Muchas gracias!</p>

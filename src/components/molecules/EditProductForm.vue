@@ -113,7 +113,6 @@
       submit() {
         if (this.valid) {
           this.editarProducto()
-          // console.log("editado el producto " + this.newproduct.name)
         } else {
           console.log("error de validación")
         }
@@ -132,7 +131,6 @@
           .get(`https://61b145c33c954f001722a877.mockapi.io/productos/${this.productid}`)
           .then(data => {
           this.editproduct = data.data
-          console.log("el producto a editar es: ", this.editproduct.name)
           })
           .catch((err) => {console.error(`${err}`)})
       },
@@ -144,7 +142,6 @@
       },
 
       vaciarForm() {
-        console.log("entro")
         this.editproduct = {
           name: '',
           desc: '',
@@ -155,7 +152,6 @@
       },
 
       refrescar() {
-        console.log("el producto editado es: ", this.editproduct.name)
         this.$emit("submit", this.editproduct.name);
         this.vaciarForm()
       }

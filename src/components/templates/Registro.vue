@@ -131,16 +131,14 @@
               email: this.email,
               password: this.password,
             }
-            console.log("new user is", this.newuser)
             this.agregarUser()
-            console.log("registrado el user " + this.firstname)
             this.registered = true
             this.$emit('click', this.registered);
           } else {
-            console.log("el usuario ya existe")
+            console.log("error")
           }
         } else {
-          console.log("no valida")
+          console.log("error de validación")
         }
       },
       agregarUser() {
@@ -158,11 +156,8 @@
           .catch((err) => {console.error(`${err}`)})
       },
       checkIfUserExists() {
-        console.log("all users:", this.allusers)
         const usuarioRepetido = this.allusers.find(o => o.user === this.user);
-        console.log("usuario repetido", usuarioRepetido)
         if (usuarioRepetido) {
-          console.log("el user ya existe")
           return true
         }
       },

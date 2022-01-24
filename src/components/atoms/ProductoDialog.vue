@@ -68,11 +68,26 @@ export default {
         this.productoAgregado.name = this.productoSeleccionado.name
         this.productoAgregado.price = this.productoSeleccionado.price
         this.productoAgregado.img = this.productoSeleccionado.img
-        
-        console.log("producto agregado es", this.productoAgregado)
+
         this.$store.dispatch("agregarAlCarrito", this.productoAgregado)
+        this.$emit("close");
+        this.mostrarAlerta()
       }
     },
-  }
+    mostrarAlerta () {
+        let alert = {
+          type: "success",
+          visible: true,
+          alerta: "carrito",
+          texto: this.alertContent,
+        }
+        this.$store.dispatch("mostrarAlert", alert)
+      },   
+  },
+  computed: {
+    alertContent: function () {
+      return this.productoAgregado.name
+    }
+  }  
 };
 </script>

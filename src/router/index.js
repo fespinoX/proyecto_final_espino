@@ -26,7 +26,7 @@ const routes = [
     name: 'PedidoPage',
     component: PedidoPage, 
     meta: { 
-      requiresAdmin: true 
+      requiresAuth: true 
     }
   },  
   {

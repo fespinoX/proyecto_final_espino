@@ -88,8 +88,6 @@
               this.logueado = true
 
               this.$store.dispatch("settearUsuario", usuario)
-
-              console.log("Bienvenido", usuario.firstName)
               
               this.$router.push('/');
             } else {
@@ -111,8 +109,6 @@
           .then(response => (this.info = response))
           .then(data => {
           this.allusers = data.data
-          console.log("levantados los usuarios")
-          console.log(this.allusers)
           })
           .catch((err) => {console.error(`${err}`)})
       },

@@ -146,8 +146,6 @@ export default new Vuex.Store({
         )
         .then((data) => {
           commit('EDITAR_PRODUCTO', data)
-          console.log('editaste, capo!')
- 
         })
         .catch((err) => {console.error(`${err}`)})
 
@@ -259,8 +257,6 @@ export default new Vuex.Store({
 
     agregarPedido(context, payload) {
 
-      console.log("payload es", payload)
-
       axios
         .post(
           `https://61b145c33c954f001722a877.mockapi.io/pedidos`,
@@ -284,7 +280,6 @@ export default new Vuex.Store({
       )
       .then((data) => {
         commit('EDITAR_PEDIDO', data)
-        console.log('editaste, capo!')
 
       })
       .catch((err) => {console.error(`${err}`)})
@@ -292,13 +287,11 @@ export default new Vuex.Store({
     },      
 
     borrarPedido({commit}, payload) {
-      console.log("en borrar pedido payload es", payload)
       axios
       .delete(
         `https://61b145c33c954f001722a877.mockapi.io/pedidos/${payload}`
       )
       .then((data) => {
-        console.log("Borrar pedido:", data.data.id);
         commit('BORRAR_PEDIDO', data.data.id)
       })
       .catch((err) => {console.error(`${err}`)})

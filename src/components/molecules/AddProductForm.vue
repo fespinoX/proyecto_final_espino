@@ -117,7 +117,6 @@
             "price": this.price,
           }
           this.agregarProducto()
-          console.log("agregado el producto " + this.newproduct.name)
         } else {
           console.log("error de validación")
         }

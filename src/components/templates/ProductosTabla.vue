@@ -145,7 +145,6 @@
 
       editarProducto(id) {
         this.productid = id
-        console.log("editar el producto " + id)
       },
 
       borrarProducto(id) {
@@ -153,7 +152,7 @@
       },
 
       editadoNotification(editadoname) {
-        console.log("se edito re bien: ", editadoname)
+        console.log(editadoname)
         this.productid = ''
       },
 

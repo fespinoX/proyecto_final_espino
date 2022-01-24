@@ -230,8 +230,6 @@
         this.newpedido.fecha = new Date()
 
         this.carrito.forEach(element => {
-          console.log(element)
-          console.log(element.name)
           this.newpedido.productos.push({
             "productname": element.name,
             "orderedqty": element.qty
@@ -240,8 +238,6 @@
         });
 
         this.newpedido.total = pedidoTotal
-        
-        console.log("el newpedido es:", this.newpedido)
 
       },
 

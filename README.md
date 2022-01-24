@@ -139,7 +139,3 @@ ___
 * Limitar cantidad de producto que se puede agregar al carrito en base al stock
 * Carrito: usar getters xa el total de productos del carrito
 
-### User
-
-* Agregar lógica para que muestre los links y el content en base al tipo de usuario
-* Mensaje si la psw es incorrecta
