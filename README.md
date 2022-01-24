@@ -91,18 +91,7 @@ ___
 
 ___
 
-## Pendientes TODO: obligatorios para entrega
-
-### General:
-
-* Comentar console logs
-
-### Usuario final:
-
-* Alerta cuando se agrega desde card (y que se cierre)
-
-
-
+## Pendientes TODO:
 
 ## Cositas extra
 

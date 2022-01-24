@@ -40,7 +40,7 @@
             class="text-center"
           >
             
-              <ResumenPedido />
+              <ResumenPedido :pedido="pedidoNuevo" />
 
           </v-col>
         </v-row>
@@ -75,19 +75,21 @@
     },
     data: () => ({
       paginaCarrito: 1,
+      pedidoNuevo: []
     }),
 
     methods: {
 
-      mostrarResumen () {
+      mostrarResumen (pedidoNuevo) {
         this.paginaCarrito = 2
+        this.pedidoNuevo = pedidoNuevo
       },
       
     },
 
     mounted() {
       this.$nextTick(function () {
-
+        this.$store.dispatch("levantarPedidos")
       })
     }
 

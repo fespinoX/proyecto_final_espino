@@ -197,7 +197,7 @@
         if (this.$refs.form.validate()) {
             this.$store.dispatch("agregarPedido", this.pedidoNuevo)
             this.$store.dispatch("vaciarCarrito")
-            this.$emit("click");
+            this.$emit("click", this.pedidoNuevo);
         }
 
       },
