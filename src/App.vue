@@ -33,6 +33,9 @@
 </script>
 
 <style lang="sass">
+
+  *
+    font-family: 'Fira Sans', sans-serif
   
   .v-btn
     color: black!important

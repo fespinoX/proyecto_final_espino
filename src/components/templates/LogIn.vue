@@ -38,6 +38,12 @@
 
         </v-row>
       </v-container>
+      <p
+        v-if="showValidationError"
+        class="validation-error"
+      >
+        Usuario o contraseña incorrectos :(
+      </p>
       <v-btn
         @click="loguearUser()"
         color="secondary"
@@ -60,6 +66,7 @@
       password: '',
       allusers: [],
       logueado: false,
+      showValidationError: false,
       userRules: [
         v => !!v || 'Por favor inserte su usuario',
         v => v.length >= 3 || 'El username debe tener al menos 3 caracteres',
@@ -86,10 +93,10 @@
               
               this.$router.push('/');
             } else {
-              console.log("usuario o contraseña incorrecta")
+              this.showValidationError = true
             }
           } else {
-            console.log("usuario o contraseña incorrecta")
+            this.showValidationError = true
           }
 
         } else {
@@ -118,3 +125,13 @@
     }    
   }
 </script>
+
+<style lang="scss" scoped>
+
+  .validation-error {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fde24f;
+  }
+
+</style>

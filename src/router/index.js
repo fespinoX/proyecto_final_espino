@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import store from '@/store'
 import MainPage from '../components/pages/MainPage.vue'
 import CarritoPage from '../components/pages/CarritoPage.vue'
+import PedidoPage from '../components/pages/PedidoPage.vue'
 import AdminPage from '../components/pages/AdminPage.vue'
 import UserPage from '../components/pages/UserPage.vue'
 
@@ -19,10 +20,15 @@ const routes = [
     path: '/carrito',
     name: 'CarritoPage',
     component: CarritoPage,
-    meta: { 
-      requiresAuth: true 
-    }
   },
+  {
+    path: '/pedido',
+    name: 'PedidoPage',
+    component: PedidoPage, 
+    meta: { 
+      requiresAdmin: true 
+    }
+  },  
   {
     path: '/admin',
     name: 'AdminPage',

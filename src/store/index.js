@@ -103,6 +103,9 @@ export default new Vuex.Store({
       state.alert.visible = false;
     }
 
+    // User
+
+
   },
 
   actions: {
@@ -231,12 +234,15 @@ export default new Vuex.Store({
 
     calcularTotalCarrito(context) {
       let carrito = JSON.parse(localStorage.getItem('carrito'));
-      let totalCarrito = carrito.reduce(function(sum, current) {
-        sum + (current.price * current.qty)
-        return sum + (current.price * current.qty);
-      }, 0);
 
-      context.commit("TOTALCARRITO", totalCarrito)
+      if (carrito) {
+        let totalCarrito = carrito.reduce(function(sum, current) {
+          sum + (current.price * current.qty)
+          return sum + (current.price * current.qty);
+        }, 0);
+  
+        context.commit("TOTALCARRITO", totalCarrito)
+      }
     },
 
 
@@ -252,6 +258,8 @@ export default new Vuex.Store({
     },
 
     agregarPedido(context, payload) {
+
+      console.log("payload es", payload)
 
       axios
         .post(

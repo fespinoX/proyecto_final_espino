@@ -95,14 +95,10 @@ ___
 
 ### General:
 
-* Mensaje de error de autenticación
 * Comentar console logs
 
 ### Usuario final:
 
-* Página para completar datos de envío y método de pago
-* Resumen de compra al final del pedido
-* Que checkee si el producto ya existe en el carrito antes de agregarlo
 * Alerta cuando se agrega desde card (y que se cierre)
 
 
@@ -132,7 +128,6 @@ ___
 ### Cliente
 
 * Carrito: Alerta cuando se agrega al carrito y cerrar el dialog
-* Carrito: Que checkee si ya existe el item en el carrito, si existe agregar la cantidad al objeto correspondiente
 * Carrito: mensaje de ok cuando se edita
 * Carrito: confirm antes de borrar
 * Carrito: mensaje de ok cuando se borra

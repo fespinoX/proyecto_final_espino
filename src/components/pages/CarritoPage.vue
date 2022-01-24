@@ -5,7 +5,7 @@
     <v-container>
       <v-row class="text-center">
         <v-col cols="12">
-          <h1 class="page-guia">Carrito Page</h1>
+          <h1>Mi Carrito</h1>
         </v-col>
       </v-row>
 
@@ -13,37 +13,14 @@
         <v-col>
 
           <div
-            v-if="mostrarCarrito"
+            v-if="carrito"
           >
 
-            <div
-              v-if="paginaCarrito === 1"
-            >
+            <div>
               <CarritoTabla
-                @click="borrarItemCarrito"
+                @click="nextPageCarrito"
               />
-
             </div>
-
-            <div
-              v-else-if="paginaCarrito === 2"
-            >
-              <v-row>
-                <v-col>
-                  <PedidoForm />
-                </v-col>
-                <v-col>
-                  <ResumenCarrito />
-                </v-col>
-              </v-row>
-            </div>
-
-            <div
-              v-else
-            >
-              <p>confirmacion pedido</p>
-            </div>
-
 
           </div>
 
@@ -67,21 +44,18 @@
 
 <script>
 
-  import store from '@/store'
+  // import store from '@/store'
 
   //Components
   import NavBar from './../organisms/NavBar.vue'
   import CarritoTabla from '../templates/CarritoTabla.vue'
-  import PedidoForm from '../molecules/PedidoForm.vue'
-  import ResumenCarrito from '../molecules/ResumenCarrito.vue'
 
+  import { mapState } from "vuex"
 
   export default {
     components: {
       NavBar,
       CarritoTabla,
-      PedidoForm,
-      ResumenCarrito
     },
     name: 'CarritoPage',
     props: {
@@ -90,24 +64,12 @@
       },
     },
     data: () => ({
-      mostrarCarrito: false,
-      paginaCarrito: 1,
     }),
 
     methods: {
 
-      checkCarrito() {
-        this.$store.dispatch("levantarCarrito")
-        if(store.state.carrito) {
-          this.mostrarCarrito = true
-        } else {
-          this.mostrarCarrito = false
-        }
-      },
-
-      borrarItemCarrito (info) {
-        console.log("info es: ", info)
-        this.checkCarrito()
+      nextPageCarrito (page) {
+        this.paginaCarrito = page
       },
 
       irAhome() {
@@ -116,9 +78,15 @@
       
     },
 
+    computed : {
+      ...mapState({
+        carrito: state => state.carrito,
+      }),
+    },
+
     mounted() {
       this.$nextTick(function () {
-        this.checkCarrito()
+        this.$store.dispatch("levantarCarrito")
       })
     }
 

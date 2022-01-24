@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h2>Mi Carrito</h2>
     <v-row>
       <v-col>
         <v-data-table
@@ -76,17 +75,21 @@
     </v-row>
     <v-row>
       <v-col>
-        Subtotal: {{totalCarrito}}
+        <p class="total">
+          Total: <span>${{totalCarrito}}</span>
+        </p>
       </v-col>
     </v-row>
-    <v-row>
+    <v-row
+      v-if="usuario.user"
+    >
       <v-col>
         <v-btn 
           color="secondary"
           dark
-          @click="realizarPedido()"
+          @click="iniciarPedido()"
         >
-          Realizar Pedido
+          Comenzar compra
         </v-btn>
       </v-col>
     </v-row>
@@ -100,7 +103,22 @@
           Vaciar Carrito
         </v-btn>
       </v-col>
-    </v-row>    
+    </v-row>   
+    
+    <v-row
+      v-if="!usuario.user"
+    >
+      <v-col>
+        <p>Inciá sesión para realizar tu compra</p>
+        <v-btn 
+          color="secondary"
+          dark
+          @click="irAlLoguin()"
+        >
+          Loguearme
+        </v-btn>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
@@ -171,8 +189,6 @@
 
         this.$store.dispatch("borrarItemCarrito", id)
 
-        //this.$emit("click", this.carrito);
-
       },
 
       editarItemCarrito(item) {
@@ -194,18 +210,15 @@
 
       vaciarCarrito() {
         this.$store.dispatch("vaciarCarrito")
-        this.$emit("click", this.carrito);
-        
+        this.$router.push('/');
       },
 
-      realizarPedido() {
+      irAlLoguin() {
+        this.$router.push('/user'); 
+      },
 
-        this.agregarItemsAlPedido()
-
-        this.$store.dispatch("agregarPedido", this.newpedido)
-
-        this.vaciarCarrito()
-        this.$router.push('/');
+      iniciarPedido() {
+       this.$router.push('/pedido'); 
       },
 
       agregarItemsAlPedido() {
@@ -237,14 +250,15 @@
     computed : {
       ...mapState({
         carrito: state => state.carrito,
+        usuario: state => state.usuario,
         totalCarrito: state => state.totalCarrito,
       }),
     },
     
     mounted() {
       this.$nextTick(function () {
-          this.$store.dispatch("levantarCarrito")
-          this.$store.dispatch("calcularTotalCarrito")
+        this.$store.dispatch("levantarCarrito")
+        this.$store.dispatch("calcularTotalCarrito")
       })
     }    
   }
@@ -263,6 +277,14 @@
 
     .qtyform-btn {
       margin-left: 5px;
+    }
+  }
+
+  .total {
+    font-size: 1.5rem;
+    color: #00ebc7;
+    span {
+      font-weight: 600;
     }
   }
 

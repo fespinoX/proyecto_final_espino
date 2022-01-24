@@ -6,8 +6,7 @@
       <v-row class="text-center">
 
         <v-col cols="12">
-          <h1 class="page-guia">User Page</h1>
-
+          
           <div v-if="showLogin">
             <LogIn />
               <div class="mt-6">

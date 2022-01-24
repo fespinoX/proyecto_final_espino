@@ -14,20 +14,56 @@
             :key="item.id"
           >
             
-            <td class="text-left">{{ item.userid }}</td>
             <td class="text-left">
-              <ul>
+              <ul
+                class="no-style-list"
+              >
+                <li>
+                  {{ item.firstName }} {{ item.lastName }}
+                </li>
+                <li>
+                  {{ item.email }}
+                </li>
+                <li>
+                  {{ item.telefono }}
+                </li>
+                <li>
+                  <ul
+                    class="no-style-list"
+                  >
+                    <li>
+                      {{ item.addressLineOne }}
+                    </li>
+                    <li>
+                      {{ item.addressLineTwo }}
+                    </li>
+                    <li>
+                      {{ item.city }} {{ item.province }}
+                    </li>
+                    <li>
+                      {{ item.postal }}
+                    </li>                    
+                  </ul>
+                </li>                                
+                                                              
+              </ul>
+            </td>
+            <td class="text-left">
+              <ul
+                class="no-padding"
+              >
                 <li
                   v-for="producto in item.productos"
                   :key="producto.productid"
                 >
                   <span>Producto: {{ producto.productname}}</span> | 
-                  <span>Cantidad: {{producto.orderedqty}}</span>
+                  <span>Cantidad: {{producto.qty}}</span>
                 </li>
               </ul>
             </td>
             <td class="text-left">${{ item.total }}</td>
-            <td class="text-left">${{ item.fecha }}</td>
+            <td class="text-left">{{ item.metododepago }}</td>
+            <td class="text-left">{{ item.fecha }}</td>
             <td class="text-left">
               <v-icon
                 color="green"
@@ -112,6 +148,10 @@
           value: "total"
         },
         {
+          text: "Pago",
+          value: "metododepago"
+        },        
+        {
           text: "Fecha",
           value: "fecha"
         },
@@ -128,6 +168,7 @@
         productos: [],
         entregado: '',
         total: '',
+        metododepago: '',
         fecha: '',
         id: '',
       },
@@ -141,10 +182,11 @@
       entregarPedido(pedido) {
         this.editpedido.userid = pedido.userid
         this.editpedido.productos = pedido.productos
-        this.editpedido.entregado = true
         this.editpedido.total = pedido.total
+        this.editpedido.metododepago = pedido.metododepago
         this.editpedido.fecha = pedido.fecha
         this.editpedido.id = pedido.id
+        this.editpedido.entregado = true
 
         this.$store.dispatch("editarPedido", this.editpedido)
 
@@ -164,6 +206,14 @@
 
 <style lang="scss" scoped>
 
+  .no-style-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .no-padding {
+    padding: 0;
+  }
 
 </style>
 

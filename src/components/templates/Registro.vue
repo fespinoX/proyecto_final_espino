@@ -80,12 +80,6 @@
             md="6"
             offset-md="3"
           >
-            <v-text-field
-              v-model="avatar"
-              :rules="nameRules"
-              label="Avatar"
-              required
-            ></v-text-field>
           </v-col>
 
 
@@ -112,7 +106,6 @@
       firstname: '',
       lastname: '',
       user: '',
-      avatar: '',
       email: '',
       password: '',
       allusers: [],
@@ -135,7 +128,6 @@
               firstName: this.firstname,
               lastName: this.lastname,
               user: this.user,
-              avatar: this.avatar,
               email: this.email,
               password: this.password,
             }

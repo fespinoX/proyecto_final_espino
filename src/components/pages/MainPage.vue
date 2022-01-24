@@ -4,10 +4,25 @@
   
     <v-container>
       <v-row class="text-center">
+        <v-col
+          cols="12"
+          md="6"
+          offset-md="3"
+        >
+          <img
+            class="main-img"
+            src="/logo.png"
+            alt="Zelda"
+          >
+          <h1
+            class="main-title"
+          >
+            Los Juegos de mesa de Zelda
+          </h1>
+        </v-col>
         <v-col cols="12">
-          <h1 class="page-guia">Main Page</h1>
-            <Alert />
-            <ListaProductos />
+          <Alert />
+          <ListaProductos />
         </v-col>
       </v-row>
     </v-container>
@@ -44,8 +59,18 @@
   }
 </script>
 
-<style>
-  
+<style lang="scss" scoped>
 
+  .main-img {
+    margin-top: 30px;
+    height: 150px;
+  }
+  
+  .main-title {
+    font-size: 3rem;
+    line-height: 3rem;
+    color: #FED402;
+    text-transform: uppercase;
+  }
 
 </style>

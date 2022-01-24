@@ -1,11 +1,11 @@
 [
   {
    "firstName": "Fespi",
-   "avatar": "https://www.coolgenerator.com/Pic/Face//female/female20161024755339783.jpg",
    "admin": true,
    "lastName": "Espino",
    "user": "fespinox",
    "email": "florencia.espino@gmail.com",
+   "telefono": "1151231234",
    "password": "Fespi123",
    "addressLineOne": "Calle Falsa 123",
    "addressLineTwo": "6to A",
@@ -16,11 +16,11 @@
   },
   {
    "firstName": "Trixie",
-   "avatar": "https://www.coolgenerator.com/Pic/Face//male/male1084538930969.jpg",
    "admin": false,
    "lastName": "Mattel",
    "user": "trixi3",
    "email": "trixie@gmail.com",
+   "telefono": "",
    "password": "Trixie123",
    "addressLineOne": "Nieve 23",
    "addressLineTwo": "",
@@ -31,11 +31,11 @@
   },
   {
    "firstName": "Katya",
-   "avatar": "https://www.coolgenerator.com/Pic/Face//female/female20161025312572845.jpg",
    "admin": false,
    "lastName": "Zamo",
    "user": "z4mo",
    "email": "katya@gmail.com",
+   "telefono": "1151231234",
    "password": "Katya123",
    "addressLineOne": "Algo 1234",
    "addressLineTwo": "Puerta 5",
